@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>Arduino Awkward</title>
+	    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	    <meta name="title" content="Arduino Awkward" />
+	    <meta name="description" content="Arduino Awkward" />
+	    <meta content="pt" http-equiv="Content-Language" />
+	    <meta content="0" http-equiv="Expires" />
+	    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+	    <meta content="no-cache" http-equiv="Pragma" />
+	    <meta name="revisit-after" content="3 days" />
+	    <meta name="author" content="Arduino Awkward" />
+	    <meta name="language" content="portuguese" />
+	    <meta name="distribution" content="Global" />
+	    <meta name="robots" content="index, follow" />
+	    <meta name="rating" content="General" />
+	    <meta name="geo.country" content="Brasil" />
+	    <meta name="dc.language" content="pt_BR" />
+        <meta name="keywords" content="{{.project.Name}}, Arduino Awkward">
+        <meta name="author" content="Giulliano Morroni">
+	    <link rel="stylesheet" type="text/css" href="/public/bootstrap/css/bootstrap.css">
+	    <link rel="stylesheet" type="text/css" href="/public/bootstrap/css/jumbotron-narrow.css">
+	    <script type="text/javascript" src="/public/js/main.js"></script>
+		<link rel="shortcut icon" type="image/png" href="/public/img/favicon.ico">
+	</head>
+
+	<body>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46764972-1', 'casacomigo.com');
+		ga('send', 'pageview');
+		</script>
+
+		<div class="container">
+			<div class="container-narrow">
+		    	<div class="masthead">
+			        <ul class="nav nav-pills pull-right">
+			          	<li><a href="/">Home</a></li>
+			          	<li><a href="/public/about.html">About</a></li>
+			        	<li><a href="/public/contact.html">Contact</a></li>
+			        </ul>
+			    	<h3 class="muted">Arduino Awkward</h3>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="jumbotron">
+				<h1>{{.project.Name}}</h1> 
+				<p class="lead"> {{.project.Description}}</p>
+			</div>
+			<div class="content">
+
+				<div class="row" style="margin-top:25px;">
+					<h2>Fotos</h2>
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_1.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_2.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+					<div class="col-md-4 thumbnail">		
+						<img src="/public/img/{{.project.Url}}/photo_3.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+				</div>
+
+				<div class="row" style="margin-top:25px;">
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_4.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_5.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+						<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_6.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+				</div>
+
+				<div class="row" style="margin-top:25px;">
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_7.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_8.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+					<div class="col-md-4 thumbnail">
+						<img src="/public/img/{{.project.Url}}/photo_9.jpg" onclick="openPhoto(this.src);" data-src="/public/js/holder.js/100%x180" onerror="hideImage(this)" class="img-responsive">
+					</div>
+				</div>
+
+				<div class="row" style="margin-top:25px;">
+					<h2>Videos</h2>
+					<div class="col-md-6" id="video1">
+						<video width="300" height="200" controls error="hideVideo('video1')">
+							<source src="/public/img/{{.project.Url}}/video_1.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+
+					<div class="col-md-6" id="video2">
+						<video width="300" height="200" controls onerror="hideVideo('video2')" >
+							<source src="/public/img/{{.project.Url}}/video_2.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<p> Giulliano Morroni </p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			handleVideoError()
+		</script>
+
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">{{.project.Name}}</h4>
+					</div>
+					<div class="modal-body" id="modalBody">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">fechar</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</body>
+</html>
+
+
+

@@ -1,0 +1,31 @@
+@import url("bootstrap.css");
+@import url("bootstrap-responsive.css");
+
+.error {color:red; border-color:red;}
+
+.erroAssinaturaPasso1 {
+    color:#E81300;
+    font-size: large;
+}
+
+.centeredDiv {
+    float: none;
+    margin: 0 auto;
+    max-width: 1000px;
+    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+    padding: 1px;
+    color:#FBEDA5
+}
+
+body {
+    background-color:#E9F0DF;
+}
+
+div {
+    border-radius: 10px;
+}
+
+a.linkHome:hover, a.linkHome:link, a.linkHome:visited, a.linkHome:active {
+    text-decoration: none;
+}
+

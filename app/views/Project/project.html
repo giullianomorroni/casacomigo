@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>Arduino Awkward</title>
+	    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	    <meta name="title" content="Arduino Awkward" />
+	    <meta name="description" content="Arduino Awkward" />
+	    <meta content="pt" http-equiv="Content-Language" />
+	    <meta content="0" http-equiv="Expires" />
+	    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+	    <meta content="no-cache" http-equiv="Pragma" />
+	    <meta name="revisit-after" content="3 days" />
+	    <meta name="author" content="Arduino Awkward" />
+	    <meta name="language" content="portuguese" />
+	    <meta name="distribution" content="Global" />
+	    <meta name="robots" content="index, follow" />
+	    <meta name="rating" content="General" />
+	    <meta name="geo.country" content="Brasil" />
+	    <meta name="dc.language" content="pt_BR" />
+	    <meta name="keywords" content="{{.project.Name}}, Arduino Awkward">
+	    <meta name="author" content="Giulliano Morroni">
+	    <link rel="stylesheet" type="text/css" href="/public/bootstrap/css/bootstrap.css">
+	    <link rel="stylesheet" type="text/css" href="/public/bootstrap/css/jumbotron-narrow.css">
+		<link rel="shortcut icon" type="image/png" href="/public/img/favicon.ico">
+	</head>
+
+	<body>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46764972-1', 'casacomigo.com');
+		ga('send', 'pageview');
+
+		</script>
+		<div class="container">
+			<div class="container-narrow">
+		    	<div class="masthead">
+			        <ul class="nav nav-pills pull-right">
+			          	<li><a href="/">Home</a></li>
+			          	<li><a href="/public/about.html">About</a></li>
+			        	<li><a href="/public/contact.html">Contact</a></li>
+			        </ul>
+			    	<h3 class="muted">Arduino Awkward</h3>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="jumbotron">
+				<h1>{{.project.Name}}</h1> 
+				<p class="lead"> {{.project.Description}}</p>
+				Complexidade :
+				<div class="progress">
+				   <div class="progress-bar progress-bar-success" id="easy" ></div>
+				   <div class="progress-bar progress-bar-warning" id="medium"></div>
+				   <div class="progress-bar progress-bar-danger"  id="hard" ></div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<span id="project_description">
+						
+						</span>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-top:30px;">
+					<a name="photos"></a>
+					<div class="col-xs-4">
+						<h4>Fotos</h4>
+						<a href="/photos/{{.project.Url}}">
+							<img src="/public/img/photo.png">
+						</a>
+					</div>
+					
+					<a name="videos"></a>
+					<div class="col-xs-4" name="videos">
+						<h4>Videos</h4>
+						<a href="/photos/{{.project.Url}}">
+							<img src="/public/img/video.png">
+						</a>
+					</div>
+	
+					<div class="col-xs-4">
+						<h4>Código Fonte</h4>
+						<a href="{{.project.Source}}" target="_blank">
+							<img src="/public/img/source.png">
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<p> Giulliano Morroni </p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/public/js/main.js"></script>
+		<script type="text/javascript">
+			$("#project_description").html({{.project.Content}})
+			showComplexity({{.project.Complexity}});
+		</script>
+	</body>
+</html>
+

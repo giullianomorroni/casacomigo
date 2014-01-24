@@ -1,0 +1,55 @@
+
+    <h3>Obrigado por nos escolher nesta ocasião tão especial. </h3>
+
+    <!--  {% if transacao == None %} -->
+        <h4>Faremos de tudo para que este momento seja somente de alegrias.
+        Para concluir sua assinatura falta apaneas relizar o pagamento.</h4>
+
+        <h3>Plano Trimestral (3x)</h3>
+        <form target="pagseguro" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html" method="post">
+            <input type="hidden" name="code" value="C7F70E154444D2F884EBEF863F7EEA28" />
+            <h4>
+                <input type="image"
+                   style="padding: 10px"
+                   src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/120x53-assinar-azul.gif"
+                   name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                R$ 150,00
+            </h4>
+        </form>
+
+        <h3>Plano Semestral (6x)</h3>
+        <form target="pagseguro" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html" method="post">
+            <input type="hidden" name="code" value="C7F70E154444D2F884EBEF863F7EEA28" />
+            <h4>
+                <input type="image"
+                   style="padding: 10px"
+                   src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/120x53-assinar-azul.gif"
+                   name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                R$ 200,00
+            </h4>
+        </form>
+
+        <h3>Plano Anual (12x)</h3>
+        <form target="pagseguro" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html" method="post">
+            <input type="hidden" name="code" value="C7F70E154444D2F884EBEF863F7EEA28" />
+            <h4>
+                <input type="image"
+                   style="padding: 10px"
+                   src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/120x53-assinar-azul.gif"
+                   name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                R$ 250,00
+            </h4>
+        </form>
+
+        <h4>Utilizamos o sistema de pagamento da UOL para garantir sua segurança.
+        Se preferir poderá fazer o pagamento via transferência bancária, entre em contato com financeiro@casacomigo.net.</h4>
+
+    <!--{% elif transacao != None %} -->
+        <h3>Parabéns seu pagamento foi efetuado. Sua transação é a xxx </h3>
+        *Não precisa anotar nos enviaremos para seu email.
+    <!--{% endif %} -->
+
+
+    <script type="text/javascript">
+        $("#mainDiv").css("background-color","#70402E");
+    </script>

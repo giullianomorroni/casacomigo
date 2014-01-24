@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Casa Comigo</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+	<meta name="title" content="Casa Comigo" />
+    <meta name="description" content="Casa Comigo" />
+    <meta content="pt" http-equiv="Content-Language" />
+    <meta content="0" http-equiv="Expires" />
+    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control" />
+    <meta content="no-cache" http-equiv="Pragma" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="author" content="Casa Comigo" />
+    <meta name="language" content="portuguese" />
+    <meta name="distribution" content="Global" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="General" />
+    <meta name="geo.country" content="Brasil" />
+    <meta name="dc.language" content="pt_BR" />
+</head>
+
+<body>
+	<div class="container-fluid centeredDiv">
+		<h1 style="color: #359788;">
+			<a href="/" class="linkHome"> Casa Comigo </a>
+		</h1>
+
+		<div class="row-fluid" id="mainDiv">
+			<div class="span12">
+		
+		    	<form action="/conta/registrar/" method="post" id="assinatura_passo_1" novalidate="novalidate">
+					<div class="row-fluid">
+		             	<h3>Unificador de Pessoas</h3>
+		            	<div class="span12"> <h2>noivo</h2> </div>
+		
+		            	<div class="row-fluid">
+			              	<div class="span2">nome:</div>
+			              	<div class="span4"><input type="text" name="noivo" id="noivo" /></div>
+			              	<div class="span6">erro_message</div>
+		            	</div>
+		
+		            	<div class="row-fluid">
+			              	<div class="span2">email:</div>
+			              	<div class="span4"> <input type="text" name="emailNoivo" id="emailNoivo" /> </div>
+			              	<div class="span6">erro_message</div>
+		            	</div>
+			
+		            	<div class="row-fluid">
+			              	<div class="span2">telefone:</div>
+			              	<div class="span4"> <input type="text" name="telefoneNoivo" id="telefoneNoivo" placeholder="(00) 0000-0000"/> </div>
+			              	<div class="span6">erro_message</div>
+		            	</div>
+		          	</div>
+		
+		          	<div class="row-fluid">
+		            	<div class="span12"> <h2>noiva</h2> </div>
+		
+		            	<div class="row-fluid">
+			              	<div class="span2">nome:</div>
+			              	<div class="span4"><input type="text" name="noiva" id="noiva" /></div>
+			              	<div class="span6">erro_message</div>
+			            </div>
+		
+			            <div class="row-fluid">
+		    	          	<div class="span2">email:</div>
+		        	      	<div class="span4"> <input type="text" name="emailNoiva" id="emailNoiva" /> </div>
+		    	          	<div class="span6">erro_message</div>
+		            	</div>
+		
+		            	<div class="row-fluid">
+		              		<div class="span2">telefone:</div>
+		              		<div class="span4"> <input type="text" name="telefoneNoiva" id="telefoneNoiva" placeholder="(00) 0000-0000" /> </div>
+		              		<div class="span6">erro_message</div>
+		            	</div>
+		          	</div>
+		
+		          	<div class="row-fluid">
+		            	<div class="span12"> <h2>Juntos</h2> </div>
+		
+		            	<div class="row-fluid">
+		                	<div class="span2"> apelido (#hashtag): </div>
+		                	<div class="span4"> <input type="text" name="apelido" id="apelido" placeholder="#joao_e_maria"/> </div>
+		                	<div class="span6">
+		                    	O apelido será usado para acessar sua area e compor o site de vocês (www.casacomigo.com.br/joao_e_maria)
+		                	</div>
+		            	</div>
+		
+		            	<div class="row-fluid">
+		                	<div class="span2"> senha: </div>
+		                	<div class="span4"> <input type="password" name="senha" id="senha" placeholder="******" /> </div>
+		                	<div class="span6"> </div>
+		            	</div>
+		
+		            	<div class="row-fluid">
+		                	<div class="span2"> data casamento: </div>
+		                	<div class="span4"> <input type="text" name="dataCasamento" id="dataCasamento" placeholder="00/00/0000" /> </div>
+		                	<div class="span6"> </div>
+		            	</div>
+		          	</div>
+		
+		          	<div class="row-fluid">
+		            	<button id="concluir" class="btn btn-success btn-large" style="font-size:larger;">próximo passo</button>
+		          	</div>
+		    	</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span2">
+			{{.flash.success}}
+			{{.flash.error}}
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
+    <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="/public/js/assinatura.js"></script>
+    <script type="text/javascript">
+        $("#mainDiv").css("background-color","#70402E");
+    </script>
+
+  </body>
+</html>
+    

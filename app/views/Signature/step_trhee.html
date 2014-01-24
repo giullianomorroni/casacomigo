@@ -1,0 +1,54 @@
+
+
+    <form action="/assinatura/concluir/" method="post">
+        
+        <input type="hidden" name="assinante" value="assinante" />
+        <div class="row-fluid">
+            <div class="row-fluid">
+                <div class="span8"><h2>Nós vamos precisar de...</h2></div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8">Uma a cinco foto(s) (preferencialmente do casal)</div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span4"> <input type="file" id="foto1" name="foto1" /> </div>
+                <div class="span4"> <input type="file" id="foto2" name="foto2" /> </div>
+                <div class="span4"> <input type="file" id="foto3" name="foto3" /> </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4"> <input type="file" id="foto4" name="foto4" /> </div>
+                <div class="span4"> <input type="file" id="foto5" name="foto5" /> </div>
+                <div class="span4"> <input type="file" id="foto6" name="foto6" /> </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span4">Um texto falando sobre o casamento ou o casal</div>
+                <div class="span8"> <textarea rows="5" cols="80" id="casal" name="casal"></textarea> </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span4">Detalhes da Igreja</div>
+                <div class="span8"> <textarea rows="5" cols="80" id="igreja" name="igreja"></textarea> </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span4">Detalhes da Festa</div>
+                <div class="span8"> <textarea rows="5" cols="80" id="festa" name="festa"></textarea> </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12"><button id="concluir" class="btn btn-success btn-large" style="font-size:larger;">concluir</button></div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
+    <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="/public/js/assinatura.js"></script>
+    <script type="text/javascript">
+        $("#mainDiv").css("background-color","#70402E");
+    </script>
