@@ -4,8 +4,8 @@ Test credentials
 
 Test account: giullianomorroni-facilitator@gmail.com
 Endpoint:     api.sandbox.paypal.com 
-Client ID:    ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO 
-Secret:       EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3 
+Client ID:    ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO
+Secret:       EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3
 
 
 Endpoint:  api.paypal.com 
@@ -13,3 +13,42 @@ Client ID: AU4ZaBDoMZZgwxPoh9r_wA02-YHc0y_8XqvLFhH_qg50XlwP4zs78heGxkM5
 Secret:    EK4RIBDON84eLi7Cq7l4HWbodLTJfBWh2gg3CZMj_ahjXiOiKyPZ6yJjsooN 
 
 Keep your secret credentials private to protect you and your customers.
+
+
+
+
+
+
+Example access token request
+
+curl -v https://api.sandbox.paypal.com/v1/oauth2/token \
+  -H "Accept: application/json" \
+  -H "Accept-Language: en_US" \
+  -u "ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO:EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3" \
+  -d "grant_type=client_credentials"
+  
+  
+  
+Example PayPal payment request
+
+curl -v https://api.sandbox.paypal.com/v1/payments/payment \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {accessToken}' \
+-d '{
+  "intent":"sale",
+  "redirect_urls":{
+    "return_url":"http://example.com/your_redirect_url/",
+    "cancel_url":"http://example.com/your_cancel_url/"
+  },
+  "payer":{
+    "payment_method":"paypal"
+  },
+  "transactions":[
+    {
+      "amount":{
+        "total":"7.47",
+        "currency":"USD"
+      }
+    }
+  ]
+}'
