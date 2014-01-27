@@ -1,0 +1,15 @@
+REST API CREDENTIALS
+
+Test credentials
+
+Test account: giullianomorroni-facilitator@gmail.com
+Endpoint:     api.sandbox.paypal.com 
+Client ID:    ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO 
+Secret:       EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3 
+
+
+Endpoint:  api.paypal.com 
+Client ID: AU4ZaBDoMZZgwxPoh9r_wA02-YHc0y_8XqvLFhH_qg50XlwP4zs78heGxkM5 
+Secret:    EK4RIBDON84eLi7Cq7l4HWbodLTJfBWh2gg3CZMj_ahjXiOiKyPZ6yJjsooN 
+
+Keep your secret credentials private to protect you and your customers.
