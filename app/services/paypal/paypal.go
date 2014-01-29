@@ -1,43 +1,65 @@
 package main
 
 import (
-  "fmt"
-  "github.com/crowdmob/paypal"
+	"fmt"
+	"github.com/crowdmob/paypal"
 )
-   
+
 func main() {
-  paypalExpressCheckoutHandler()
+	tokenGenerate()
 }
 
+/*
+* generate token for a shop transaction
+*/
+func tokenGenerate() (string,string) {
+	// An example to setup paypal express checkout for digital goods
+	currencyCode := "USD"
+	isSandbox:= true
+	returnURL:= "http://casacomigo.com/test/payment/approved"
+	cancelURL:= "http://casacomigo.com/test/payment/canceled"
 
-func paypalExpressCheckoutHandler(w http.ResponseWriter, r *http.Request) {
-  // An example to setup paypal express checkout for digital goods
-  currencyCode := "USD"
-  isSandbox    := true
-  returnURL    := "http://casacomigo.com/test/payment/return"
-  cancelURL    := "http://casacomigo.com/test/payment/canceled"
+	// sandbox credentials
+	client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "1390819253", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
 
-  // Create the paypal Client with default http client
-  client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "kaza6969", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
+	// Make a array of your digital-goods
+	testGoods := []paypal.PayPalDigitalGood{paypal.PayPalDigitalGood{
+		Name: "Tv Led 40", 
+		Amount: 200.000,
+		Quantity: 1,
+	}}
 
-  // Make a array of your digital-goods
-  testGoods := []paypal.PayPalDigitalGood{paypal.PayPalDigitalGood{
-    Name: "Test Good", 
-    Amount: 200.000,
-    Quantity: 5,
-  }}
+	// Sum amounts and get the token!
+	response, err := client.SetExpressCheckoutDigitalGoods(
+		paypal.SumPayPalDigitalGoodAmounts(&testGoods), 
+		currencyCode, 
+		returnURL,
+		cancelURL,
+		testGoods,
+	)
 
-  // Sum amounts and get the token!
-  response, err := client.SetExpressCheckoutDigitalGoods(paypal.SumPayPalDigitalGoodAmounts(&testGoods), 
-    currencyCode, 
-    returnURL, 
-    cancelURL, 
-    testGoods,
-  )
+	if err != nil {
+	   // handle error in charging
+	}
+	
+	mapResult := response.Values
+	ack := mapResult["ACK"]
+	token := mapResult["TOKEN"]
 
-  if err != nil {
-    // ... gracefully handle error
-  } else { // redirect to paypal
-    http.Redirect(w, r, response.CheckoutUrl(), 301)
-  }
+	fmt.Print(mapResult)
+	return token[0], ack[0];
+}
+
+func confirmPayment(token, payerId, currency string, amount float64) {
+	isSandbox := true
+
+	client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "1390819253", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
+	response, err := client.DoExpressCheckoutSale(token, payerId, currency, amount)
+
+	if err != nil {
+	   // handle error in charging
+	}
+
+	mapResult := response.Values
+	fmt.Print(mapResult)
 }
