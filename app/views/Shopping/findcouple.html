@@ -31,22 +31,46 @@
 
 		<div class="row-fluid" id="mainDiv">
 			<div class="span12">
-				<h3>Aqui só entra casal</h3>
-		      	<form action="/autenticar/" method="post">
-			  
-			  		<div class="span3">email: <input type="email" name="email" id="email"> </div>
-			  		<div class="span3">senha: <input type="password" name="senha" id="senha"> </div>
-			  		<div class="row-fluid">
-			    		<div class="span3">
-							<button id="ok">ok</button>
-			    		</div>
-			    		<div class="span3">
-			      			<button id="ok">esqueci minha senha</button>
-			    		</div>
-			  		</div>
-		      	</form>
-		    </div>
-		
+	
+				<form action="/casal/buscar" method="get">
+			        <div class="row-fluid">
+			            <h3>Achador de casal</h3>
+			            <div class="row-fluid">
+			                <div class="span3">noivo:</div>
+			                <div class="span5"> <input type="text" name="noivo" id="noivo" /> </div>
+			            </div>
+			
+			            <div class="row-fluid">
+			                <div class="span3">noiva: </div>
+			                <div class="span5"> <input type="text" name="noiva" id="noiva" /> </div>
+			            </div>
+			
+			            <div class="row-fluid">
+			                <div class="span3">data casamento: </div>
+			                <div class="span5"> <input type="text" name="casamento" id="casamento" placeholder="00/00/0000"/> </div>
+			            </div>
+			        </div>
+			        <button id="concluir" class="btn btn-large">pesquisar</button>
+			    </form>
+			    <br/>
+			
+			    <table class="table table-hover">
+			        <tr>
+			            <th>Noivo</th>
+			            <th>Noiva</th>
+			            <th colspan="1">Data Casamento</th>
+			        </tr>
+			        for casal in casais
+			            <tr>
+			                <td>casal.noivo</td>
+			                <td>casal.noiva</td>
+			                <td>casal.casamento</td>
+			                <td><a href="/produtos/casal.assinatura.tipoListaPresente">lista de prsentes</a></td>
+			            </tr>
+			        endfor
+			    </table>
+			
+			</div>
 		</div>
 	</div>
 
@@ -62,8 +86,9 @@
     <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
     <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
     <script type="text/javascript" src="/public/js/assinatura.js"></script>
-  	<script type="text/javascript">
-        $("#mainDiv").css("background-color","#033649");
+    <script type="text/javascript">
+        $("#mainDiv").css("background-color","#576D58");
+        $("#casamento").mask("00/00/0000");
     </script>
 
   </body>

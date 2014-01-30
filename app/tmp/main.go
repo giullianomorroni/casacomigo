@@ -115,25 +115,35 @@ func main() {
 	revel.RegisterController((*controllers1.Account)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Register",
+				Name: "Login",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "url_name", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					29: []string{ 
-					},
-					31: []string{ 
-						"project",
+					17: []string{ 
 					},
 				},
 			},
 			&revel.MethodType{
-				Name: "NewAccount",
+				Name: "Profile",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "url_name", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					35: []string{ 
+					21: []string{ 
+					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.Shopping)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "FindCouple",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					17: []string{ 
 					},
 				},
 			},
@@ -148,6 +158,42 @@ func main() {
 				},
 				RenderArgNames: map[int][]string{ 
 					21: []string{ 
+					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.Test)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "PaymentApproved",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					17: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PaymentCanceled",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					21: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PayPalAccountConfirm",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					25: []string{ 
 					},
 				},
 			},

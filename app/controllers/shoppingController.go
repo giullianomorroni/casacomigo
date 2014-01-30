@@ -6,17 +6,13 @@ import (
 )
 
 type (
-	Account struct {
+	Shopping struct {
 		cb.BaseController
 	}
 )
 
 func init() {}
 
-func (this *Account) Login() revel.Result {
-	return this.Render();
-}
-
-func (this *Account) Profile(url_name string) revel.Result {
+func (this *Shopping) FindCouple() revel.Result {
 	return this.Render();
 }

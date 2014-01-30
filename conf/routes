@@ -7,7 +7,12 @@ GET		/conta/nova				Signature.NewAccount
 POST	/conta/registrar		Signature.Register
 
 GET		/test/payment/canceled	Test.PaymentCanceled
-GET		/test/payment/approved	Test.ReturnPayment
+GET		/test/payment/approved	Test.PaymentApproved
+
+GET		/minha_conta			Account.Login
+POST	/autenticar				Account.Profile
+
+GET		/casal/buscar			Shopping.FindCouple
 
 # Ignore favicon requests
 GET     /favicon.ico							404
