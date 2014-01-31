@@ -143,7 +143,28 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					17: []string{ 
+					18: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "ProductDetail",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					22: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Checkout",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					30: []string{ 
+						"token",
 					},
 				},
 			},
