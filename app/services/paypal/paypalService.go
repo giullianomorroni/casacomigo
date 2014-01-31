@@ -1,18 +1,14 @@
-package main
+package paypal
 
 import (
 	"fmt"
 	"github.com/crowdmob/paypal"
 )
 
-func main() {
-	tokenGenerate()
-}
-
 /*
 * generate token for a shop transaction
 */
-func tokenGenerate() (string,string) {
+func GenerateToken(amount float64, name string) (string,string) {
 	// An example to setup paypal express checkout for digital goods
 	currencyCode := "USD"
 	isSandbox:= true
@@ -24,8 +20,8 @@ func tokenGenerate() (string,string) {
 
 	// Make a array of your digital-goods
 	testGoods := []paypal.PayPalDigitalGood{paypal.PayPalDigitalGood{
-		Name: "Tv Led 40", 
-		Amount: 200.000,
+		Name: name, 
+		Amount: amount,
 		Quantity: 1,
 	}}
 

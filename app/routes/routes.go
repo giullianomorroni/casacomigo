@@ -121,6 +121,24 @@ func (_ tShopping) FindCouple(
 	return revel.MainRouter.Reverse("Shopping.FindCouple", args).Url
 }
 
+func (_ tShopping) ProductDetail(
+		id int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Shopping.ProductDetail", args).Url
+}
+
+func (_ tShopping) Checkout(
+		id int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Shopping.Checkout", args).Url
+}
+
 
 type tHome struct {}
 var Home tHome
