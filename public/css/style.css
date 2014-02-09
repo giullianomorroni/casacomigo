@@ -1,5 +1,4 @@
-@import url("bootstrap.css");
-@import url("bootstrap-responsive.css");
+@import url("bootstrap.min.css");
 
 .error {color:red; border-color:red;}
 

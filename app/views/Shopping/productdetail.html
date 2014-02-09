@@ -29,15 +29,25 @@
 		</h1>
 		{{ template "menu.html" .}}
 
-		<div class="row-fluid" id="mainDiv">
-			<div class="span12">
-	
-			        <div class="row-fluid">
-			            <h3>Detalhe do Produto</h3>
-						<a href="/comprar/produto/1">Comprar</a>
-			        </div>
-			    <br/>
+		<div class="row" style="background-color: #0088cc; min-height: 350px; margin: 20px 0 0;">
+			<div class="col-md-12">
+				<h3>Detalhes do Produto</h3>
+			</div>
 			
+			<div class="row">
+				<div class="col-md-4">
+			      	<img  data-src="holder.js/300x200" alt="Tv de Led - R$200,00">
+				</div>
+				<div class="col-md-6">
+					<h4>Smart TV LED HD 32" LG 32LN560B 3 HDMI 3 USB 60Hz</h4>
+					<h4>De R$ 350,00</h4>
+					<h3>Por R$ 199,00</h3>
+					
+					<form action="/comprar/produto/1" method="get" id="formularioCompra">
+						<button type="submit" style="min-height: 60px; min-width: 100px; font-size: large;" class="btn btn-success" >Comprar</button>
+						<button type="button" style="min-height: 60px; min-width: 100px;" class="btn btn-info">Informações</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -54,6 +64,8 @@
     <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
     <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
     <script type="text/javascript" src="/public/js/assinatura.js"></script>
+    <script type="text/javascript" src="/public/js/holder.js"></script>
+
     <script type="text/javascript">
         $("#mainDiv").css("background-color","#576D58");
         $("#casamento").mask("00/00/0000");

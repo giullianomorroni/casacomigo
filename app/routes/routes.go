@@ -30,35 +30,6 @@ func (_ tBaseController) Panic(
 }
 
 
-type tStatic struct {}
-var Static tStatic
-
-
-func (_ tStatic) Serve(
-		prefix string,
-		filepath string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "prefix", prefix)
-	revel.Unbind(args, "filepath", filepath)
-	return revel.MainRouter.Reverse("Static.Serve", args).Url
-}
-
-func (_ tStatic) ServeModule(
-		moduleName string,
-		prefix string,
-		filepath string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "moduleName", moduleName)
-	revel.Unbind(args, "prefix", prefix)
-	revel.Unbind(args, "filepath", filepath)
-	return revel.MainRouter.Reverse("Static.ServeModule", args).Url
-}
-
-
 type tTestRunner struct {}
 var TestRunner tTestRunner
 
@@ -86,6 +57,35 @@ func (_ tTestRunner) List(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("TestRunner.List", args).Url
+}
+
+
+type tStatic struct {}
+var Static tStatic
+
+
+func (_ tStatic) Serve(
+		prefix string,
+		filepath string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "prefix", prefix)
+	revel.Unbind(args, "filepath", filepath)
+	return revel.MainRouter.Reverse("Static.Serve", args).Url
+}
+
+func (_ tStatic) ServeModule(
+		moduleName string,
+		prefix string,
+		filepath string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "moduleName", moduleName)
+	revel.Unbind(args, "prefix", prefix)
+	revel.Unbind(args, "filepath", filepath)
+	return revel.MainRouter.Reverse("Static.ServeModule", args).Url
 }
 
 
@@ -181,16 +181,25 @@ func (_ tTest) PayPalAccountConfirm(
 	return revel.MainRouter.Reverse("Test.PayPalAccountConfirm", args).Url
 }
 
+func (_ tTest) PaymentReturn(
+		param string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "param", param)
+	return revel.MainRouter.Reverse("Test.PaymentReturn", args).Url
+}
+
 
 type tSignature struct {}
 var Signature tSignature
 
 
 func (_ tSignature) Register(
-		noivo string,
+		nomeNoivo string,
 		telefoneNoivo string,
 		emailNoivo string,
-		noiva string,
+		nomeNoiva string,
 		telefoneNoiva string,
 		emailNoiva string,
 		apelido string,
@@ -199,10 +208,10 @@ func (_ tSignature) Register(
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "noivo", noivo)
+	revel.Unbind(args, "nomeNoivo", nomeNoivo)
 	revel.Unbind(args, "telefoneNoivo", telefoneNoivo)
 	revel.Unbind(args, "emailNoivo", emailNoivo)
-	revel.Unbind(args, "noiva", noiva)
+	revel.Unbind(args, "nomeNoiva", nomeNoiva)
 	revel.Unbind(args, "telefoneNoiva", telefoneNoiva)
 	revel.Unbind(args, "emailNoiva", emailNoiva)
 	revel.Unbind(args, "apelido", apelido)
@@ -223,6 +232,31 @@ func (_ tSignature) ChooseSite(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("Signature.ChooseSite", args).Url
+}
+
+func (_ tSignature) Payment(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Signature.Payment", args).Url
+}
+
+func (_ tSignature) RegisterPayment(
+		plano string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "plano", plano)
+	return revel.MainRouter.Reverse("Signature.RegisterPayment", args).Url
+}
+
+func (_ tSignature) RegisterSite(
+		site_id string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "site_id", site_id)
+	return revel.MainRouter.Reverse("Signature.RegisterSite", args).Url
 }
 
 

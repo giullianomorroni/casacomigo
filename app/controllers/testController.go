@@ -3,6 +3,7 @@ package controllers
 import (
 	cb "casacomigo/app/controllers/base"
 	"github.com/robfig/revel"
+	"fmt"
 )
 
 type (
@@ -24,4 +25,10 @@ func (this *Test) PaymentCanceled(param string) revel.Result {
 func (this *Test) PayPalAccountConfirm() revel.Result {
 	return this.Render();
 	//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=<tokenValue>
+}
+
+
+func (this *Test) PaymentReturn(param string) revel.Result {
+	fmt.Print(param)
+	return this.Render(param);
 }

@@ -4,7 +4,6 @@
     <title>Casa Comigo</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
     <meta name="title" content="Casa Comigo" />
     <meta name="description" content="Casa Comigo" />
     <meta content="pt" http-equiv="Content-Language" />
@@ -19,6 +18,7 @@
     <meta name="rating" content="General" />
     <meta name="geo.country" content="Brasil" />
     <meta name="dc.language" content="pt_BR" />
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <html>
@@ -26,10 +26,10 @@
     <div class="container-fluid centeredDiv">
   	    <h1 style="color:#359788; "><span >Casa Comigo</span></h1>
         {{ template "menu.html" .}}
-        <div class="row-fluid" style="background-color: #0088cc; min-height: 350px; margin: 20px 0 0;">
-            <div class="row-fluid">
+        <div class="row" style="background-color: #0088cc; min-height: 350px; margin: 20px 0 0;">
+            
                 <h3>Bem Vindo !!!</h3>
-                <div class="span4">
+                <div class="col-md-4">
                 Casa Comigo é um espaço construído para os futuros casais. Casais exigentes que fazem questão de qualidade.
                 Oferemos a vocês diversos serviços, o primeiro e talvez mais importante
                 é o seu espaço virtual, temos sites excepcionais que vão mostrar os melhores ângulos do casal.
@@ -42,7 +42,7 @@
                 assim suas amigas e amigos vão poder acompanhá-los a todo momento. (Veja alguns exemplos aqui.)
                 </div>
 		        <div class="span2"></div>
-                <div class="span4">
+                <div class="col-md-4">
                 O próximo passo é montar uma lista de presentes. Nós oferecemos listas de vários tipos e aceitamos sugestões ou
                 listas personalizadas.
 				As listas funcionam da seguinte maneira: todo item comprado é convertido em dinheiro vivo e 
@@ -50,13 +50,13 @@
 				(através da ferramenta do pag seguro). Ao utilzar o pag seguro do UOL seus convidados terão a opção de parcelar 
 				a compra em até 12x.
                 </div>
-            </div>
+            
         </div>
 
-        <div class="row-fluid" style="min-height: 350px; border-radius: 10px; background-color:#C9664F; margin: 20px 0 0;">
-            <div class="span3">
+        <div class="row" style="min-height: 350px; border-radius: 10px; background-color:#C9664F; margin: 20px 0 0;">
+            <div class="col-md-3">
 	            <ul class="thumbnails">
-		            <li class="span3">
+		            <li class="col-md-3">
 		                <img src="/public/img/instagram.png" class="thumbnail" width="100" height="100" alt="instagram">
                         <img src="/public/img/dropbox.png" class="thumbnail" width="100" height="100" alt="dropbox">
                         <img src="/public/img/facebook.png " class="thumbnail" width="100" height="100" alt="facebook">
@@ -65,18 +65,16 @@
 		            </li>
 	            </ul>
 	        </div>
-            <div class="span5">
-                <comment>
+            <div class="col-md-5">
                   O Casa Comigo marca presença nas redes sociais, vocês poderão ser vistos em todas nas maiores redes sociais.
                   Quer mandar um post para seus amigos, que tal usar o twitter, tirou uma foto nova, nós podemos publicar no
                   seu instagram, use as #hashtags do casal e deixe a mágica conosco.
                   Receba atualizações como comentários, mensagens ou fotos diretamente no seu whats app. Ou se preferir
                   podemos simplesmente usar o bom e velho email
-                </comment>
             </div>
-            <div class="span3">
+            <div class="col-md-3">
 	            <ul class="thumbnails">
-		            <li class="span3">
+		            <li class="col-md-3">
                         <img src="/public/img/twitter.png " class="thumbnail" width="100" height="100" alt="twitter">
                         <img src="/public/img/email.png  " class="thumbnail" width="100" height="100" alt="email">
                         <img src="/public/img/flipboard.png" class="thumbnail" width="100" height="100" alt="flipboard">
@@ -87,11 +85,11 @@
         </div>
 
 
-        <div class="row-fluid" style=" background-color: #576D58; min-height: 350px; margin: 20px 0 0;">
-            <div class="span3">
+        <div class="row" style=" background-color: #576D58; min-height: 350px; margin: 20px 0 0;">
+            <div class="col-md-3">
                 <img src="/public/img/money.png" class="thumbnail" width="100" height="100" alt="instagram">
             </div>
-            <div class="span3">
+            <div class="col-md-3">
                 Quermos oferecer os melhores planos do mercado e por isso criamos um espaço com taxas e planos 
                 acessíveis e até mesmo instigadores. Ofertando ao casal altos níveis de lucro. Nenhum outro 
                 site poderá oferecer a vocês a mesma sensação de segurança e tranquilidade como nós o faremos.
@@ -100,19 +98,19 @@
                 <br/><br/>
                 Entre em contato (sem compromisso) e lhe atenderemos o mais breve possível.
             </div>
-            <div class="span3">
+            <div class="col-md-3">
             </div>
         </div>
 
 
-        <div class="row-fluid" style="background-color: #587585; min-height: 350px; margin: 20px 0 0;">
-            <div class="span12">
+        <div class="row" style="background-color: #587585; min-height: 350px; margin: 20px 0 0;">
+            <div class="col-md-12">
                 <h2>
                     Conheça nossos planos, escolha o melhor para vocês e comece agora mesmo.
                 </h2>
                 <p>Ainda tem dúvidas sobre nossas taxas ? <a href="#myModal" class="label label-info" data-toggle="modal">Leia mais</a></p>
                 <div class="row-fluid">
-                    <div class="span4">
+                    <div class="col-md-4">
                         <h3>Trimestral: R$ 150,00</h3>
                         <ul>
                           <li> Site do casal completo </li>
@@ -121,7 +119,7 @@
                           <li> Notificações de comentários, fotos, presentes e mensagens. </li>
                         </ul>
                     </div>
-                    <div class="span4">
+                    <div class="col-md-4">
                         <h3>Semestral: R$ 250,00</h3>
                         <ul>
                           <li> Site do casal completo
@@ -132,7 +130,7 @@
                           <li> Domínio personalizado (www.nomecasal.com.br)* </li>
                         </ul>
                     </div>
-                    <div class="span4">
+                    <div class="col-md-4">
                         <h3>Anual: R$ 350,00</h3>
                         <ul>
                           <li> Site do casal completo </li>
@@ -152,7 +150,7 @@
 
         <footer>
             <div id="footer" class="row-fluid centeredDiv">
-                <div class="span3">
+                <div class="col-md-3">
                     <ol>
                         <li>Quem somos nós</li>
                         <li>Fale Conosco</li>
@@ -160,31 +158,21 @@
                         <li>Sobre a Empresa</li>
                     </ol>
                 </div>
-                <div class="span3">
+                <div class="col-md-3">
                     <ol>
                         <li>facebook</li>
                         <li>instagram</li>
                         <li>twitter</li>
                     </ol>
                 </div>
-                <div class="span3">
+                <div class="col-md-3">
 
                 </div>
             </div>
         </footer>
 
     <script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="/public/js/affix.js"></script>
-    <script type="text/javascript" src="/public/js/alert.js"></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/public/js/button.js"></script>
-    <script type="text/javascript" src="/public/js/carousel.js"></script>
-    <script type="text/javascript" src="/public/js/collapse.js"></script>
-    <script type="text/javascript" src="/public/js/modal.js"></script>
-    <script type="text/javascript" src="/public/js/popover.js"></script>
-    <script type="text/javascript" src="/public/js/tab.js"></script>
-    <script type="text/javascript" src="/public/js/tooltip.js"></script>
-    <script type="text/javascript" src="/public/js/transition.js"></script>
 
     <!-- Modal -->
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

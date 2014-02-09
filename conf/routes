@@ -2,12 +2,19 @@
 
 #module:testrunner
 
-GET		/						Home.Index
-GET		/conta/nova				Signature.NewAccount
-POST	/conta/registrar		Signature.Register
+GET		/							Home.Index
+GET		/conta/nova					Signature.NewAccount
+POST	/conta/registrar			Signature.Register
+GET		/visualizar/site			Signature.ChooseSite
+POST	/conta/selecionar/site		Signature.RegisterSite
+GET		/conta/pagamento			Signature.Payment
+POST	/conta/registrar/pagamento	Signature.RegisterPayment
 
 GET		/test/payment/canceled	Test.PaymentCanceled
 GET		/test/payment/approved	Test.PaymentApproved
+GET		/test/payment/return	Test.PaymentReturn
+
+GET		/payment/return			Test.PaymentReturn
 
 GET		/minha_conta			Account.Login
 POST	/autenticar				Account.Profile
