@@ -12,8 +12,8 @@ func GenerateToken(amount float64, name string) (string,string) {
 	// An example to setup paypal express checkout for digital goods
 	currencyCode := "USD"
 	isSandbox:= true
-	returnURL:= "http://casacomigo.com/test/payment/return"
-	cancelURL:= "http://casacomigo.com/test/payment/canceled"
+	returnURL:= "http://casacomigo.net/test/payment/return"
+	cancelURL:= "http://casacomigo.net/test/payment/canceled"
 
 	// sandbox credentials
 	client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "1390819253", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
