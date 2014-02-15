@@ -37,7 +37,7 @@ func GenerateToken(amount float64, name string) (string,string) {
 	if err != nil {
 	   // handle error in charging
 	}
-	
+
 	mapResult := response.Values
 	ack := mapResult["ACK"]
 	token := mapResult["TOKEN"]
@@ -46,16 +46,13 @@ func GenerateToken(amount float64, name string) (string,string) {
 	return token[0], ack[0];
 }
 
-func confirmPayment(token, payerId, currency string, amount float64) {
+func ConfirmPayment(token, payerId, currency string, amount float64) {
 	isSandbox := true
-
+	fmt.Print("token: " + token);
+	fmt.Print("payerId: " + payerId);
+	fmt.Print("ammount: %s", amount);
 	client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "1390819253", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
-	response, err := client.DoExpressCheckoutSale(token, payerId, currency, amount)
-
-	if err != nil {
-	   // handle error in charging
-	}
-
-	mapResult := response.Values
-	fmt.Print(mapResult)
+	response, err := client.DoExpressCheckoutSale(token, payerId, currency, amount);
+	fmt.Print(response);
+	fmt.Print(err);
 }

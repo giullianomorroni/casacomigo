@@ -136,6 +136,53 @@ func main() {
 			
 		})
 	
+	revel.RegisterController((*controllers1.Payment)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "PaymentApproved",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					19: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PaymentCanceled",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					23: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PayPalAccountConfirm",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					27: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PaymentReturn",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "token", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "PayerID", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					38: []string{ 
+					},
+				},
+			},
+			
+		})
+	
 	revel.RegisterController((*controllers1.Shopping)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
@@ -185,53 +232,6 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers1.Test)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "PaymentApproved",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					18: []string{ 
-						"param",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "PaymentCanceled",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					22: []string{ 
-						"param",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "PayPalAccountConfirm",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					26: []string{ 
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "PaymentReturn",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					33: []string{ 
-						"param",
-					},
-				},
-			},
-			
-		})
-	
 	revel.RegisterController((*controllers1.Signature)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
@@ -255,7 +255,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					67: []string{ 
+					69: []string{ 
 					},
 				},
 			},
@@ -264,7 +264,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					71: []string{ 
+					73: []string{ 
 					},
 				},
 			},
@@ -273,7 +273,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					75: []string{ 
+					77: []string{ 
 					},
 				},
 			},
@@ -283,7 +283,7 @@ func main() {
 					&revel.MethodArg{Name: "plano", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					89: []string{ 
+					93: []string{ 
 						"token",
 					},
 				},
@@ -301,15 +301,15 @@ func main() {
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"casacomigo/app/controllers.Signature.Register": { 
-			25: "nomeNoivo",
-			26: "nomeNoiva",
-			28: "telefoneNoivo",
-			29: "telefoneNoiva",
-			31: "emailNoivo",
-			32: "emailNoiva",
-			34: "apelido",
-			35: "dataCasamento",
-			37: "senha",
+			26: "nomeNoivo",
+			27: "nomeNoiva",
+			29: "telefoneNoivo",
+			30: "telefoneNoiva",
+			32: "emailNoivo",
+			33: "emailNoiva",
+			35: "apelido",
+			36: "dataCasamento",
+			38: "senha",
 		},
 	}
 	revel.TestSuites = []interface{}{ 

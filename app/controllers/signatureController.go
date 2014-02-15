@@ -8,6 +8,7 @@ import (
 	"casacomigo/app/services/paypal"
 	"github.com/robfig/revel"
     "fmt"
+    "strconv"
 )
 
 type (
@@ -16,11 +17,6 @@ type (
 	}
 )
 
-func init() {
-
-}
-
-//** CONTROLLER FUNCTIONS
 func (s Signature) Register(nomeNoivo, telefoneNoivo, emailNoivo, nomeNoiva, telefoneNoiva, emailNoiva, apelido, senha, dataCasamento string) revel.Result {
 	s.Validation.Required(nomeNoivo).Message("Nome do noivo.")
 	s.Validation.Required(nomeNoiva).Message("Nome do noiva.")
@@ -64,7 +60,8 @@ func (s Signature) Register(nomeNoivo, telefoneNoivo, emailNoivo, nomeNoiva, tel
 }
 
 func (this *Signature) NewAccount() revel.Result {
-	return this.Render("step_one.html");
+	this.Session["teste"] = "giulliano";
+	return this.Render();
 }
 
 func (this *Signature) ChooseSite() revel.Result {
@@ -80,7 +77,9 @@ func (this *Signature) RegisterPayment(plano string) revel.Result {
 	if (plano == "trimestral") { price = 150.00; }
 	if (plano == "semestral") { price = 250.00; }
 	if (plano == "anual") { price = 350.00; }
-	
+
+	this.Session["ammount"] = strconv.FormatFloat(price, 'g', 1, 64);
+
 	token, ack := paypal.GenerateToken(price, "Assinatura Casa Comigo")
 	
 	if (ack != "SUCESS") {

@@ -110,6 +110,47 @@ func (_ tAccount) Profile(
 }
 
 
+type tPayment struct {}
+var Payment tPayment
+
+
+func (_ tPayment) PaymentApproved(
+		param string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "param", param)
+	return revel.MainRouter.Reverse("Payment.PaymentApproved", args).Url
+}
+
+func (_ tPayment) PaymentCanceled(
+		param string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "param", param)
+	return revel.MainRouter.Reverse("Payment.PaymentCanceled", args).Url
+}
+
+func (_ tPayment) PayPalAccountConfirm(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Payment.PayPalAccountConfirm", args).Url
+}
+
+func (_ tPayment) PaymentReturn(
+		token string,
+		PayerID string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "token", token)
+	revel.Unbind(args, "PayerID", PayerID)
+	return revel.MainRouter.Reverse("Payment.PaymentReturn", args).Url
+}
+
+
 type tShopping struct {}
 var Shopping tShopping
 
@@ -149,45 +190,6 @@ func (_ tHome) Index(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("Home.Index", args).Url
-}
-
-
-type tTest struct {}
-var Test tTest
-
-
-func (_ tTest) PaymentApproved(
-		param string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "param", param)
-	return revel.MainRouter.Reverse("Test.PaymentApproved", args).Url
-}
-
-func (_ tTest) PaymentCanceled(
-		param string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "param", param)
-	return revel.MainRouter.Reverse("Test.PaymentCanceled", args).Url
-}
-
-func (_ tTest) PayPalAccountConfirm(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Test.PayPalAccountConfirm", args).Url
-}
-
-func (_ tTest) PaymentReturn(
-		param string,
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "param", param)
-	return revel.MainRouter.Reverse("Test.PaymentReturn", args).Url
 }
 
 

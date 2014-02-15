@@ -10,11 +10,11 @@ POST	/conta/selecionar/site		Signature.RegisterSite
 GET		/conta/pagamento			Signature.Payment
 POST	/conta/registrar/pagamento	Signature.RegisterPayment
 
-GET		/test/payment/canceled	Test.PaymentCanceled
-GET		/test/payment/approved	Test.PaymentApproved
-GET		/test/payment/return	Test.PaymentReturn
+GET		/test/payment/canceled	Payment.PaymentCanceled
+GET		/test/payment/approved	Payment.PaymentApproved
+GET		/test/payment/return	Payment.PaymentReturn
 
-GET		/payment/return			Test.PaymentReturn
+GET		/payment/return			Payment.PaymentReturn
 
 GET		/minha_conta			Account.Login
 POST	/autenticar				Account.Profile
