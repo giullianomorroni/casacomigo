@@ -2,6 +2,7 @@ package controllers
 
 import (
 	cb "casacomigo/app/controllers/base"
+	srv "casacomigo/app/services/account"
 	"casacomigo/app/services/paypal"
 	"github.com/robfig/revel"
 	"strconv"
@@ -35,5 +36,9 @@ func (this *Payment) PaymentReturn(token, PayerID string) revel.Result {
 		//TODO
 	}
 	paypal.ConfirmPayment(token, PayerID, "USD", ammountFloat);
+
+	apelido := this.Session["account_id"]
+	srv.UpdateAccountStatus(apelido, "pagamento_efetuado");
+	
 	return this.Render();
 }

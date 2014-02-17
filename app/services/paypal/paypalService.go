@@ -52,7 +52,7 @@ func ConfirmPayment(token, payerId, currency string, amount float64) {
 	fmt.Print("payerId: " + payerId);
 	fmt.Print("ammount: %s", amount);
 	client := paypal.NewDefaultClient("giullianomorroni-facilitator_api1.gmail.com", "1390819253", "AGR75IF1giC-pWSpNNZemgHXSMWIA0Vl0c81i3stMYbQpiroX-k7fhaD", isSandbox)
-	response, err := client.DoExpressCheckoutSale(token, payerId, currency, amount);
+	response, err := client.DoExpressCheckoutSale(token, payerId, currency, amount);	
 	fmt.Print(response);
 	fmt.Print(err);
 }

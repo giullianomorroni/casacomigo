@@ -2,8 +2,10 @@ package controllers
 
 import (
 	cb "casacomigo/app/controllers/base"
+	srv "casacomigo/app/services/account"
 	"casacomigo/app/services/paypal"
 	"github.com/robfig/revel"
+	//"fmt"
 )
 
 type (
@@ -14,8 +16,10 @@ type (
 
 func init() {}
 
-func (this *Shopping) FindCouple() revel.Result {
-	return this.Render();
+
+func (this *Shopping) FindCouple(noivo, noiva string) revel.Result {
+	result := srv.FindCouple(noivo, noiva);
+	return this.Render(result);
 }
 
 func (this *Shopping) ProductDetail(id int) revel.Result {

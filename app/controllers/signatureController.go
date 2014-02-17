@@ -51,16 +51,16 @@ func (s Signature) Register(nomeNoivo, telefoneNoivo, emailNoivo, nomeNoiva, tel
 	a.Status 		= "aguardando_pagamento"
 	a.Lucro 		= 0.0
 
-	p, err := srv.Register(a);
+	srv.Register(a);
+	//fmt.Print(a)
+	//fmt.Print(err)
 
-	fmt.Print(p)
-	fmt.Print(err)
-	
+	s.Session["account_id"] = a.Apelido
+
 	return s.Redirect((*Signature).ChooseSite)
 }
 
 func (this *Signature) NewAccount() revel.Result {
-	this.Session["teste"] = "giulliano";
 	return this.Render();
 }
 
@@ -81,7 +81,7 @@ func (this *Signature) RegisterPayment(plano string) revel.Result {
 	this.Session["ammount"] = strconv.FormatFloat(price, 'g', 1, 64);
 
 	token, ack := paypal.GenerateToken(price, "Assinatura Casa Comigo")
-	
+
 	if (ack != "SUCESS") {
 		//NOTHING
 	}
@@ -90,7 +90,7 @@ func (this *Signature) RegisterPayment(plano string) revel.Result {
 
 func (this *Signature) RegisterSite(site_id string) revel.Result {
 	siteChoose := site.Site{}
-	siteChoose.Casal = "1"
+	siteChoose.Casal	= this.Session["account_id"]
 	siteChoose.Site 	= site_id;
 
 	p, err := srv.RegisterSite(siteChoose);

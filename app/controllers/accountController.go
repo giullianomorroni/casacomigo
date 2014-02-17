@@ -20,3 +20,4 @@ func (this *Account) Login() revel.Result {
 func (this *Account) Profile(url_name string) revel.Result {
 	return this.Render();
 }
+

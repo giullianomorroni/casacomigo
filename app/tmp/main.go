@@ -8,9 +8,9 @@ import (
 	_ "casacomigo/app"
 	controllers1 "casacomigo/app/controllers"
 	controllerBase "casacomigo/app/controllers/base"
-	controllers0 "github.com/robfig/revel/modules/static/app/controllers"
+	controllers "github.com/robfig/revel/modules/static/app/controllers"
 	_ "github.com/robfig/revel/modules/testrunner/app"
-	controllers "github.com/robfig/revel/modules/testrunner/app/controllers"
+	controllers0 "github.com/robfig/revel/modules/testrunner/app/controllers"
 )
 
 var (
@@ -54,7 +54,31 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.TestRunner)(nil),
+	revel.RegisterController((*controllers.Static)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Serve",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "ServeModule",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers0.TestRunner)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -81,30 +105,6 @@ func main() {
 			&revel.MethodType{
 				Name: "List",
 				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers0.Static)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Serve",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			&revel.MethodType{
-				Name: "ServeModule",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -144,7 +144,7 @@ func main() {
 					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					19: []string{ 
+					20: []string{ 
 						"param",
 					},
 				},
@@ -155,7 +155,7 @@ func main() {
 					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					23: []string{ 
+					24: []string{ 
 						"param",
 					},
 				},
@@ -165,7 +165,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					27: []string{ 
+					28: []string{ 
 					},
 				},
 			},
@@ -176,7 +176,7 @@ func main() {
 					&revel.MethodArg{Name: "PayerID", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					38: []string{ 
+					43: []string{ 
 					},
 				},
 			},
@@ -188,9 +188,12 @@ func main() {
 			&revel.MethodType{
 				Name: "FindCouple",
 				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "noivo", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "noiva", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					18: []string{ 
+					22: []string{ 
+						"result",
 					},
 				},
 			},
@@ -200,7 +203,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					22: []string{ 
+					26: []string{ 
 					},
 				},
 			},
@@ -210,7 +213,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					30: []string{ 
+					34: []string{ 
 						"token",
 					},
 				},
@@ -255,7 +258,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					69: []string{ 
+					64: []string{ 
 					},
 				},
 			},
@@ -264,7 +267,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					73: []string{ 
+					68: []string{ 
 					},
 				},
 			},
@@ -273,7 +276,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					77: []string{ 
+					72: []string{ 
 					},
 				},
 			},
@@ -283,7 +286,7 @@ func main() {
 					&revel.MethodArg{Name: "plano", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					93: []string{ 
+					88: []string{ 
 						"token",
 					},
 				},
@@ -301,15 +304,15 @@ func main() {
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 		"casacomigo/app/controllers.Signature.Register": { 
-			26: "nomeNoivo",
-			27: "nomeNoiva",
-			29: "telefoneNoivo",
-			30: "telefoneNoiva",
-			32: "emailNoivo",
-			33: "emailNoiva",
-			35: "apelido",
-			36: "dataCasamento",
-			38: "senha",
+			21: "nomeNoivo",
+			22: "nomeNoiva",
+			24: "telefoneNoivo",
+			25: "telefoneNoiva",
+			27: "emailNoivo",
+			28: "emailNoiva",
+			30: "apelido",
+			31: "dataCasamento",
+			33: "senha",
 		},
 	}
 	revel.TestSuites = []interface{}{ 
