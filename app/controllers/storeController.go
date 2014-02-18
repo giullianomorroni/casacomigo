@@ -19,7 +19,7 @@ func (this *Store) Offers() revel.Result {
 	return this.Render();
 }
 
-func (this *Store) Store() revel.Result {
+func (this *Store) Store(apelido string) revel.Result {
 	return this.Render();
 }
 

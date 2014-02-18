@@ -37,14 +37,14 @@
 			            <h3>Achador de casal</h3>            	
 			            <div class="form-group">
 	              			<label for="nomeNoivo" class="col-sm-2 control-label">Noivo</label>
-	              			<div class="col-sm-10"> <input type="text" class="form-control" name="noiva" id="noiva" /> </div>
+	              			<div class="col-sm-10"> <input type="text" class="form-control" name="noivo" id="noivo" /> </div>
             			</div>
-			
+
 			            <div class="form-group">
 	              			<label for="nomeNoivo" class="col-sm-2 control-label">Noiva</label>
 	              			<div class="col-sm-10"> <input type="text" class="form-control" name="noiva" id="noiva" /> </div>
             			</div>
-            			
+
 			        </div>
 			        <button id="concluir" class="btn btn-info btn-large" style="font-size:larger;">Procurar...</button>
 			    </form>
@@ -54,20 +54,18 @@
 			        <tr>
 			            <th>Noivo</th>
 			            <th>Noiva</th>
-			            <th></th>
+			            <th>Data Casamento</th>
+			            <th>Lista de Presentes</th>
 			        </tr>
 
-			        {{with $field := field "result" .}}
-				        a: {{$field.Name}}
-			        {{end}}
-
-			        for casal in casais
+			        {{range .result}}
 			            <tr>
-			                <td>casal.noivo</td>
-			                <td>casal.noiva</td>
-			                <td><a href="/produtos/casal.assinatura.tipoListaPresente">lista de prsentes</a></td>
+			                <td>{{.Noivo}}</td>
+			                <td>{{.Noiva}}</td>
+			                <td>{{.DataCasamento}}</td>
+			                <td><a href="/loja/{{.Apelido}}"> visualizar </a></td>
 			            </tr>
-			        endfor
+			        {{end}}
 			    </table>
 			
 			</div>
@@ -81,13 +79,12 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="public/store/js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="public/store/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="public/store/js/mask/jquery.inputmask.js"></script>
-    <script type="text/javascript" src="public/store/js/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
+    <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
     <script type="text/javascript">
         $("#mainDiv").css("background-color","#576D58");
-        $("#casamento").mask("00/00/0000");
     </script>
 
   </body>

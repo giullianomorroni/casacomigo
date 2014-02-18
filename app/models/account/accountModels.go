@@ -5,6 +5,7 @@ type (
 	Account struct {
 		Noivo			string	`bson:"noivo"`
 		Noiva			string	`bson:"noiva"`
+		DataCasamento	string	`bson:"dataCasamento"`
 		TelefoneNoivo	string	`bson:"telefoneNoivo"`
 		TelefoneNoiva	string	`bson:"telefoneNoiva"`
 		EmailNoivo		string	`bson:"emailNoivo"`

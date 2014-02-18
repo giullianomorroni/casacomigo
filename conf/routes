@@ -3,12 +3,14 @@
 #module:testrunner
 
 GET		/							Home.Index
+
 GET		/conta/nova					Signature.NewAccount
-POST	/conta/registrar			Signature.Register
-GET		/visualizar/site			Signature.ChooseSite
-POST	/conta/selecionar/site		Signature.RegisterSite
 GET		/conta/pagamento			Signature.Payment
+POST	/conta/registrar			Signature.Register
+POST	/conta/selecionar/site		Signature.RegisterSite
 POST	/conta/registrar/pagamento	Signature.RegisterPayment
+
+GET		/visualizar/site			Signature.ChooseSite
 
 GET		/test/payment/canceled	Payment.PaymentCanceled
 GET		/test/payment/approved	Payment.PaymentApproved
@@ -20,14 +22,15 @@ GET		/minha_conta			Account.Login
 POST	/autenticar				Account.Profile
 
 GET		/casal/buscar			Shopping.FindCouple
+
 GET		/produto/:id			Shopping.ProductDetail
 GET		/comprar/produto/:id	Shopping.Checkout
 
 
 #Store
-GET		/store					Store.Store
-GET		/store/offers			Store.Offers
-GET		/store/products			Store.Products
+GET		/loja					Store.Store
+GET		/loja/ofertas			Store.Offers
+GET		/loja/produtos			Store.Products
 
 # Ignore favicon requests
 GET     /favicon.ico							404
