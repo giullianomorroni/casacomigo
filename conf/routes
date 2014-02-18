@@ -28,16 +28,19 @@ GET		/comprar/produto/:id	Shopping.Checkout
 
 
 #Store
-GET		/loja					Store.Store
-GET		/loja/ofertas			Store.Offers
-GET		/loja/produtos			Store.Products
+GET		/loja/casal/:apelido		Store.Store
+GET		/loja/ofertas				Store.Offers
+GET		/loja/produtos				Store.Products
+GET		/loja/faq					Store.Faq
+GET		/loja/produto/:id			Store.Product
+GET		/loja/comprar/produto/:id	Store.Checkout
 
 # Ignore favicon requests
-GET     /favicon.ico							404
+GET     /favicon.ico			404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/*filepath						Static.Serve("public")
-GET     /public/bootstrap/css/*filepath			Static.Serve("public")
+GET     /public/*filepath					Static.Serve("public")
+GET     /public/bootstrap/css/*filepath		Static.Serve("public")
 
 # Catch all
-*       /:controller/:action					:controller.:action
+*       /:controller/:action	:controller.:action
