@@ -10,24 +10,23 @@ import (
 
 //** PUBLIC FUNCTIONS
 func Find(url_name string) (p *account.Account, err error) {
-	return p, err
+    return p, err
 }
 
 func FindCouple(noivo, noiva string) ([]account.Account) {
-	session, err := mgo.Dial("127.0.0.1")
-	if err != nil {
-		panic(err)
-	}
- 
-	defer session.Close()
-	session.SetMode(mgo.Monotonic, true)
- 
- 	c := session.DB("casacomigo").C("account")
-
-	var results []account.Account
-	//err = c.Find( bson.M{"$or": [] bson.M{ bson.M{"noivo":{noivo} , bson.M{"noiva":{noiva}} } } } ).One(&results)
-	err = c.Find(bson.M{"noivo":noivo,"noiva":noiva}).All(&results)
+    session, err := mgo.Dial("127.0.0.1")
     if err != nil {
+	    panic(err)
+    }
+
+    defer session.Close()
+    session.SetMode(mgo.Monotonic, true)
+
+    c := session.DB("casacomigo").C("account")
+
+    var results []account.Account
+    err = c.Find( bson.M{"$or": [] bson.M{ bson.M{"noivo":bson.RegEx{".*"+noivo+"*", "i"}}, bson.M{"noiva":bson.RegEx{".*"+noiva+"*", "i"}} } }).All(&results)
+	if err != nil {
     	panic(err)
     }
     return results; 
