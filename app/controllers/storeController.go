@@ -38,3 +38,7 @@ func (this *Store) Product(product_id int) revel.Result {
 func (this *Store) Faq() revel.Result {
 	return this.Render();
 }
+
+func (this *Store) Contact() revel.Result {
+	return this.Render();
+}
