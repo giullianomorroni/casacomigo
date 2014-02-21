@@ -23,9 +23,8 @@ POST	/autenticar				Account.Profile
 
 GET		/casal/buscar			Shopping.FindCouple
 
-GET		/produto/:id			Shopping.ProductDetail
-GET		/comprar/produto/:id	Shopping.Checkout
-
+#Produc
+GET		/produto/listar/limite/:limite/pular/:pular			Product.List
 
 #Store
 GET		/loja/casal/:apelido		Store.Store
