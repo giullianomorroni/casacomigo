@@ -1,25 +1,28 @@
-$( document ).ready(function() {
- 
+var HOST = location.host;
+var PROTOCOL = window.location.protocol;
+
+$(document).ready(function() {
+	
 	$.ajax({
-		  url: "http://localhost:9000/produto/listar/limite/4/pular/0",
+		  url: (PROTOCOL+"//"+HOST)+"/produto/listar/limite/4/pular/0",
 		  success: function(data) { mountFeaturedProducts(data, "#first_featured_products_ul"); },
 		  dataType: "json"
 	});
 
 	$.ajax({
-		  url: "http://localhost:9000/produto/listar/limite/4/pular/4",
+		  url: (PROTOCOL+"//"+HOST)+"/produto/listar/limite/4/pular/4",
 		  success: function(data) { mountFeaturedProducts(data, "#second_featured_products_ul"); },
 		  dataType: "json"
 	});
 
 	$.ajax({
-		  url: "http://localhost:9000/produto/listar/limite/4/pular/8",
+		  url: (PROTOCOL+"//"+HOST)+"/produto/listar/limite/4/pular/8",
 		  success: function(data) { mountFeaturedProducts(data, "#third_featured_products_ul"); },
 		  dataType: "json"
 	});
 
 	$.ajax({
-		  url: "http://localhost:9000/produto/listar/limite/6/pular/0",
+		  url: (PROTOCOL+"//"+HOST)+"/produto/listar/limite/6/pular/0",
 		  success: function(data) { mountFeaturedProducts(data, "#latest_products_ul"); },
 		  dataType: "json"
 	});
@@ -34,7 +37,7 @@ function mountFeaturedProducts(data, ul_id) {
 			"<li class='span3'> "+
 			"<div class='thumbnail'> "+
 			"	<i class='tag'></i> "+
-			"	<a href='product_details.html'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''></a> "+
+			"	<a href='/loja/produto/"+produto.Codigo+"'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''></a> "+
 			"	<div class='caption'> "+
 			"		<h5> "+produto.Titulo+"</h5> "+
 			"	  	<h4><a class='btn' href='/loja/produto/"+produto.Codigo+"'> Detalhes </a> <span class='pull-right'> R$"+produto.Preco+" </span></h4> "+
@@ -52,7 +55,7 @@ function mountLatestProducts(data, ul_id) {
 		var html = 
 		"<li class='span3'>"+
 		"	<div class='thumbnail'>"+
-		"		<a  href='product_details.html'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''/></a>"+
+		"		<a  href='/loja/produto/"+produto.Codigo+"'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''/></a>"+
 		"			<div class='caption'>"+
 		"				<h5>"+produto.Titulo+"</h5>"+
 		"				<p> "+produto.Descricao.subString(0, 20)+"... </p>"+

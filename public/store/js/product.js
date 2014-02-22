@@ -1,9 +1,12 @@
-$( document ).ready(function() {
+var HOST = location.host;
+var PROTOCOL = window.location.protocol;
+
+$(document).ready(function() {
  
 	product_code = $("#product_code").val()
 	$.ajax({
 		
-		  url: "http://localhost:9000/produto/"+product_code,
+		  url: (PROTOCOL+"//"+HOST)+"/produto/"+product_code,
 		  success: function(data) { mountProduct(data); },
 		  dataType: "json"
 	});
