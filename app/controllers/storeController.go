@@ -31,8 +31,9 @@ func (this *Store) Checkout(product_id int) revel.Result {
 	return this.Render();
 }
 
-func (this *Store) Product(product_id int) revel.Result {
-	return this.Render();
+func (this *Store) Product(codigo int) revel.Result {
+	productCode := codigo;
+	return this.Render(productCode);
 }
 
 func (this *Store) Faq() revel.Result {

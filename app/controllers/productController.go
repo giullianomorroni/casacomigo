@@ -20,3 +20,8 @@ func (this *Product) List(limite, pular int) revel.Result {
 	return this.RenderJson(list);
 }
 
+func (this *Product) Detail(codigo int) revel.Result {	
+	product := srv.FindProduct(codigo);
+	return this.RenderJson(product);
+}
+

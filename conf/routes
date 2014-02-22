@@ -23,8 +23,9 @@ POST	/autenticar				Account.Profile
 
 GET		/casal/buscar			Shopping.FindCouple
 
-#Produc
-GET		/produto/listar/limite/:limite/pular/:pular			Product.List
+#Product
+GET		/produto/listar/limite/:limite/pular/:pular		Product.List
+GET		/produto/:codigo								Product.Detail
 
 #Store
 GET		/loja/casal/:apelido		Store.Store
@@ -32,7 +33,7 @@ GET		/loja/ofertas				Store.Offers
 GET		/loja/produtos				Store.Products
 GET		/loja/faq					Store.Faq
 GET		/loja/contato				Store.Contact
-GET		/loja/produto/:id			Store.Product
+GET		/loja/produto/:codigo		Store.Product
 GET		/loja/comprar/produto/:id	Store.Checkout
 
 # Ignore favicon requests

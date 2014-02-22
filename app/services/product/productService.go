@@ -25,7 +25,7 @@ func Find(titulo string) ([]product.Product) {
     return results; 
 }
 
-func FindProduct(apelido string) (product.Product) {
+func FindProduct(code int) (product.Product) {
 	session, err := mgo.Dial("127.0.0.1")
 	if err != nil {
 		panic(err)
@@ -37,7 +37,7 @@ func FindProduct(apelido string) (product.Product) {
  	c := session.DB("casacomigo").C("product")
 
 	result := product.Product{}
-	err = c.Find(bson.M{"apelido": apelido}).One(&result)
+	err = c.Find(bson.M{"codigo": code}).One(&result)
     if err != nil {
     	panic(err)
     }

@@ -28,7 +28,6 @@ $( document ).ready(function() {
 
 function mountFeaturedProducts(data, ul_id) {
 	var ul = $(ul_id);
-	console.log(data)
 	for (var d in data) {	
 		produto =data[d]
 		var html = 
@@ -38,7 +37,7 @@ function mountFeaturedProducts(data, ul_id) {
 			"	<a href='product_details.html'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''></a> "+
 			"	<div class='caption'> "+
 			"		<h5> "+produto.Titulo+"</h5> "+
-			"	  	<h4><a class='btn' href='product_details.html'> Detalhes </a> <span class='pull-right'> R$"+produto.Preco+" </span></h4> "+
+			"	  	<h4><a class='btn' href='/loja/produto/"+produto.Codigo+"'> Detalhes </a> <span class='pull-right'> R$"+produto.Preco+" </span></h4> "+
 			"	</div> "+
 			"</div> "+
 			"</li>";
@@ -48,7 +47,6 @@ function mountFeaturedProducts(data, ul_id) {
 
 function mountLatestProducts(data, ul_id) {
 	var ul = $(ul_id);
-	console.log(data)
 	for (var d in data) {	
 		produto=data[d]
 		var html = 
@@ -59,7 +57,7 @@ function mountLatestProducts(data, ul_id) {
 		"				<h5>"+produto.Titulo+"</h5>"+
 		"				<p> "+produto.Descricao.subString(0, 20)+"... </p>"+
 		"				<h4 style='text-align:center'>" +
-		"					<a class='btn' href='product_details.html'> <i class='icon-zoom-in'></i></a> " +
+		"					<a class='btn' href='/loja/produto/"+produto.Codigo+"'> <i class='icon-zoom-in'></i></a> " +
 		"					<a class='btn' href='#'>Adicionar ao Carrinho<i class='icon-shopping-cart'></i></a> " +
 		"					<a class='btn btn-primary' href='#'>R$"+produto.Preco+"</a></h4>"+
 		"			</div>"+
