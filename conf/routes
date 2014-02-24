@@ -30,13 +30,14 @@ GET		/carrinho/adicionar/produto/:codigo/quantidade/:quantidade	Product.Kart
 GET		/carrinho/exibir 											Product.ShowKart
 
 #Store
-GET		/loja/casal/:apelido		Store.Store
-GET		/loja/ofertas				Store.Offers
-GET		/loja/produtos				Store.Products
-GET		/loja/faq					Store.Faq
-GET		/loja/contato				Store.Contact
-GET		/loja/produto/:codigo		Store.Product
-GET		/loja/comprar/produto/:id	Store.Checkout
+GET		/loja/casal/:apelido					Store.Store
+GET		/loja/ofertas							Store.Offers
+GET		/loja/produtos							Store.Products
+GET		/loja/produtos/categoria/:categoria		Store.ProductsByCategory
+GET		/loja/faq								Store.Faq
+GET		/loja/contato							Store.Contact
+GET		/loja/produto/:codigo					Store.Product
+GET		/loja/comprar/produto/:id				Store.Checkout
 
 # Ignore favicon requests
 GET     /favicon.ico			404

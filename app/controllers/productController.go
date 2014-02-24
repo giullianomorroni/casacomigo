@@ -43,3 +43,7 @@ func (this *Product) ShowKart() revel.Result {
 	cache.Get(this.Session.Id(), &userKart)
 	return this.RenderJson(userKart);
 }
+
+func (this *Product) ProductsByCategory(category string) revel.Result {	
+	return this.Redirect(Product.List());
+}
