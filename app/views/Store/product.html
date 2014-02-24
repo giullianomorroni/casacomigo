@@ -41,18 +41,16 @@
 						<div class="span6">
 							<h3 id="title"> </h3>
 							<hr class="soft"/>
-							<form class="form-horizontal qtyFrm">
-				  				<div class="control-group">
-									<label class="control-label">
-										<span id="price"> </span>
-									</label>
-									
-									<div class="controls">
-										<input type="number" class="span1" placeholder="Qty."/>
-					  					<button type="submit" class="btn btn-large btn-primary pull-right"> Adicionar ao Carrinho <i class=" icon-shopping-cart"></i></button>
-									</div>
-				  				</div>
-							</form>
+							<div class="control-group">
+								<label class="control-label">
+									<span id="price"> </span>
+								</label>
+								
+								<div class="controls">
+									<input type="number" class="span1" placeholder="Qtd." id="quantity" value="1"/>
+									<button class="btn btn-large btn-primary pull-right" onclick="addToKart()";> Adicionar ao Carrinho <i class=" icon-shopping-cart"></i></button>
+								</div>
+							</div>
 
 							<hr class="soft clr"/>
 							<p id="descricao_curta"> </p>
@@ -188,6 +186,7 @@
 <!-- MainBody End ============================= -->
 {{template "store/footer.html"}}
 <script src="/public/store/js/product.js" type="text/javascript"></script>
+<script src="/public/store/js/commom.js" type="text/javascript"></script>
 
 </body>
 </html>

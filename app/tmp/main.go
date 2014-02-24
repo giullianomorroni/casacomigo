@@ -8,9 +8,9 @@ import (
 	_ "casacomigo/app"
 	controllers1 "casacomigo/app/controllers"
 	controllerBase "casacomigo/app/controllers/base"
-	controllers "github.com/robfig/revel/modules/static/app/controllers"
+	controllers0 "github.com/robfig/revel/modules/static/app/controllers"
 	_ "github.com/robfig/revel/modules/testrunner/app"
-	controllers0 "github.com/robfig/revel/modules/testrunner/app/controllers"
+	controllers "github.com/robfig/revel/modules/testrunner/app/controllers"
 )
 
 var (
@@ -54,31 +54,7 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.Static)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Serve",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			&revel.MethodType{
-				Name: "ServeModule",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers0.TestRunner)(nil),
+	revel.RegisterController((*controllers.TestRunner)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -112,21 +88,23 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers1.Product)(nil),
+	revel.RegisterController((*controllers0.Static)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "List",
+				Name: "Serve",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "limite", Type: reflect.TypeOf((*int)(nil)) },
-					&revel.MethodArg{Name: "pular", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
 			},
 			&revel.MethodType{
-				Name: "Detail",
+				Name: "ServeModule",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "codigo", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -151,7 +129,7 @@ func main() {
 					&revel.MethodArg{Name: "apelido", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					23: []string{ 
+					24: []string{ 
 					},
 				},
 			},
@@ -160,7 +138,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					27: []string{ 
+					28: []string{ 
 					},
 				},
 			},
@@ -170,7 +148,7 @@ func main() {
 					&revel.MethodArg{Name: "product_id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					31: []string{ 
+					32: []string{ 
 					},
 				},
 			},
@@ -180,7 +158,7 @@ func main() {
 					&revel.MethodArg{Name: "codigo", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					36: []string{ 
+					37: []string{ 
 						"productCode",
 					},
 				},
@@ -190,7 +168,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					40: []string{ 
+					41: []string{ 
 					},
 				},
 			},
@@ -199,7 +177,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					44: []string{ 
+					45: []string{ 
 					},
 				},
 			},
@@ -230,48 +208,41 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers1.Payment)(nil),
+	revel.RegisterController((*controllers1.Product)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "PaymentApproved",
+				Name: "List",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "limite", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "pular", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					20: []string{ 
-						"param",
+				},
+			},
+			&revel.MethodType{
+				Name: "Detail",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "codigo", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "Kart",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "codigo", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "quantidade", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					38: []string{ 
 					},
 				},
 			},
 			&revel.MethodType{
-				Name: "PaymentCanceled",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					24: []string{ 
-						"param",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "PayPalAccountConfirm",
+				Name: "ShowKart",
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					28: []string{ 
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "PaymentReturn",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "token", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "PayerID", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					43: []string{ 
-					},
 				},
 			},
 			
@@ -309,20 +280,6 @@ func main() {
 				RenderArgNames: map[int][]string{ 
 					34: []string{ 
 						"token",
-					},
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers1.Home)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					21: []string{ 
 					},
 				},
 			},
@@ -391,6 +348,67 @@ func main() {
 					&revel.MethodArg{Name: "site_id", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.Payment)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "PaymentApproved",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					20: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PaymentCanceled",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "param", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					24: []string{ 
+						"param",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PayPalAccountConfirm",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					28: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PaymentReturn",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "token", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "PayerID", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					43: []string{ 
+					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.Home)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					21: []string{ 
+					},
 				},
 			},
 			

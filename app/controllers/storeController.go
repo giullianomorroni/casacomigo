@@ -20,6 +20,7 @@ func (this *Store) Offers() revel.Result {
 }
 
 func (this *Store) Store(apelido string) revel.Result {
+	this.Session["couple"] = apelido;
 	return this.Render();
 }
 

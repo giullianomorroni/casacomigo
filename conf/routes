@@ -24,8 +24,10 @@ POST	/autenticar				Account.Profile
 GET		/casal/buscar			Shopping.FindCouple
 
 #Product
-GET		/produto/listar/limite/:limite/pular/:pular		Product.List
-GET		/produto/:codigo								Product.Detail
+GET		/produto/listar/limite/:limite/pular/:pular					Product.List
+GET		/produto/:codigo											Product.Detail
+GET		/carrinho/adicionar/produto/:codigo/quantidade/:quantidade	Product.Kart
+GET		/carrinho/exibir 											Product.ShowKart
 
 #Store
 GET		/loja/casal/:apelido		Store.Store

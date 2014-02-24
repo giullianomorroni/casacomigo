@@ -30,6 +30,8 @@ $(document).ready(function() {
 });
 
 function mountFeaturedProducts(data, ul_id) {
+	console.log(data);
+
 	var ul = $(ul_id);
 	for (var d in data) {	
 		produto =data[d]
