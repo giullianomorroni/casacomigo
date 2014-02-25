@@ -22,8 +22,8 @@ function mountProducts(data) {
 			"	<div class='span4'> "+
 			"		<h3>Disponível</h3> "+
 			"		<hr class='soft'/> "+
-			"		<h5> "produto.Titulo" </h5> "+
-			"		<p> "+produto.Descricao +" </p> "+
+			"		<h5>" + produto.Titulo + " </h5> "+
+			"		<p> " + produto.Descricao + " </p> "+
 			"		<a class='btn btn-small pull-right' href='/loja/produto/"+produto.Codigo+"'>Mais Informações</a> "+
 			"		<br class='clr'/> "+
 			"	</div> "+
@@ -42,14 +42,14 @@ function mountProducts(data) {
 		var html = 
 			"<li class='span3'> "+
 			"	<div class='thumbnail'> "+
-			"		<a href='/loja/produto/"+produto.Codigo+"'><img src=/public/store/themes/images/products/3.jpg alt=/></a> "+
+			"		<a href='/loja/produto/"+produto.Codigo+"'><img src='/public/store/img/"+produto.Codigo+"/thumb.jpg' alt=''/></a> "+
 			"		<div class='caption'> "+
 			"			<h5> </h5> "+
 			"			<p></p> "+
 			"			<h4 style='text-align:center'> "+
 			"				<a class='btn' href='/loja/produto/"+produto.Codigo+"'> <i class='icon-zoom-in'></i></a>  "+
 			"				<a class='btn' href='#'>Adicionar ao Carrinho <i class='icon-shopping-cart'></i></a>  "+
-			"				<a class='btn btn-primary' href='#'> +produto.Preco+ </a>"+
+			"				<a class='btn btn-primary' href='#'> R$ " +produto.Preco+ "</a>"+
 			"			</h4> "+
 			"		</div> "+
 			"	</div> "+

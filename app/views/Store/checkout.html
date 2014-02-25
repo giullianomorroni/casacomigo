@@ -11,99 +11,83 @@
 		{{template "store/sidebar.html"}}
 	<div class="span9">
     <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active"> SHOPPING CART</li>
+		<li><a href="/loja/produtos">Home</a> <span class="divider">/</span></li>
+		<li class="active"> Carrinho de Compras </li>
     </ul>
-	<h3>  SHOPPING CART [ <small>3 Item(s) </small>]<a href="products.html" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>	
+	<h3>  Carrinho Compras <a href="/loja/produtos" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Comprando </a></h3>	
 	<hr class="soft"/>
 		
 	<table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Description</th>
-                  <th>Quantity/Update</th>
-				  <th>Price</th>
-                  <th>Discount</th>
-                  <th>Tax</th>
-                  <th>Total</th>
-				</tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> <img width="60" src="/public/store/themes/images/products/4.jpg" alt=""/></td>
-                  <td>MASSA AST<br/>Color : black, Material : metal</td>
-				  <td>
-					<div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
-				  </td>
-                  <td>$120.00</td>
-                  <td>$25.00</td>
-                  <td>$15.00</td>
-                  <td>$110.00</td>
-                </tr>
+    	<thead>
+        	<tr>
+            	<th>Produto</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+				<th>Preço</th>
+                <th>Desconto</th>
+                <th>Taxa</th>
+                <th>Total</th>
+			</tr>
+		</thead>
+        
+        <tbody>
+        	{{range .products}}
 				<tr>
-                  <td> <img width="60" src="/public/store/themes/images/products/8.jpg" alt=""/></td>
-                  <td>MASSA AST<br/>Color : black, Material : metal</td>
-				  <td>
-					<div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
-				  </td>
-                  <td>$7.00</td>
-                  <td>--</td>
-                  <td>$1.00</td>
-                  <td>$8.00</td>
-                </tr>
-				<tr>
-                  <td> <img width="60" src="/public/store/themes/images/products/3.jpg" alt=""/></td>
-                  <td>MASSA AST<br/>Color : black, Material : metal</td>
-				  <td>
-					<div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"  size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
-				  </td>
-                  <td>$120.00</td>
-                  <td>$25.00</td>
-                  <td>$15.00</td>
-                  <td>$110.00</td>
-                </tr>
-				
-                <tr>
-                  <td colspan="6" style="text-align:right">Total Price:	</td>
-                  <td> $228.00</td>
-                </tr>
-				 <tr>
-                  <td colspan="6" style="text-align:right">Total Discount:	</td>
-                  <td> $50.00</td>
-                </tr>
-                 <tr>
-                  <td colspan="6" style="text-align:right">Total Tax:	</td>
-                  <td> $31.00</td>
-                </tr>
-				 <tr>
-                  <td colspan="6" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-                  <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
-                </tr>
-				</tbody>
-            </table>
-		
-		
-            <table class="table table-bordered">
-				<tbody>
-					<tr>
-                  		<td> 
-							<form class="form-horizontal">
-							<div class="control-group">
-							<label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
+	            	<td> <img width="60" src="/public/store/img/{{.Codigo}}/thumb.jpg" alt=""/></td>       	
+	                <td> {{.Titulo}} </td>
+					<td>
+						<div class="input-append">
+							<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
+							<button class="btn" type="button"><i class="icon-minus"></i></button>
+							<button class="btn" type="button"><i class="icon-plus"></i></button>
+							<button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				
+						</div>
+				 	</td>
+					<td> R${{.Preco}} </td>
+					<td>R$0.00</td>
+					<td>R$0.00</td>
+					<td> {{.Preco}} </td>
+	            </tr>
+        	{{end}}
+			<tr>
+				<td colspan="6" style="text-align:right">Total Preço:	</td>
+				<td> R$XXX.XX </td>
+			</tr>
+			<tr>
+            	<td colspan="6" style="text-align:right">Total Desconto:	</td>
+  				<td> R$0.00 </td>
+			</tr>
+			<tr>
+  				<td colspan="6" style="text-align:right">Total Taxa:	</td>
+             	<td> R$0.00 </td>
+           	</tr>
+			<tr>
+            	<td colspan="6" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
+				<td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+            </tr>
+		</tbody>
+	</table>
+	
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+            	<td> 
+					<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label"><strong> Cupom de Desconto: </strong> </label>
 							<div class="controls">
-							<input type="text" class="input-medium" placeholder="CODE">
-							<button type="submit" class="btn"> ADD </button>
+								<input type="text" class="input-medium" placeholder="CODE">
+								<button type="submit" class="btn"> Adicionar </button>
 							</div>
-							</div>
-							</form>
-						</td>
-                	</tr>
-				</tbody>
-			</table>
-            		
-	<a href="/loja/produtos" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
-	<a href="loja/pagamento" class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
+						</div>
+					</form>
+				</td>
+             </tr>
+		</tbody>
+	</table>
+         		
+	<a href="/loja/produtos" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Comprando </a>
+	<a href="loja/pagamento" class="btn btn-large pull-right"> Finalizar <i class="icon-arrow-right"></i></a>
 	
 </div>
 </div></div>

@@ -3,8 +3,6 @@ package controllers
 import (
 	cb "casacomigo/app/controllers/base"
 	srv "casacomigo/app/services/product"
-	"github.com/robfig/revel/cache"
-	"casacomigo/app/models/kart"
 	"github.com/robfig/revel"
 	//"fmt"
 )
@@ -27,23 +25,15 @@ func (this *Product) Detail(codigo int) revel.Result {
 	return this.RenderJson(product);
 }
 
-func (this *Product) Kart(codigo, quantidade int) revel.Result {	
-	userKart := new(kart.Kart);
-	err := cache.Get(this.Session.Id(), &userKart)
-	if (err != nil) {
-		userKart = new(kart.Kart);
-	}
-	userKart.AddItem(codigo, quantidade);
-	cache.Set(this.Session.Id(), userKart, cache.DEFAULT)
+func (this *Product) Products() revel.Result {
 	return this.Render();
 }
 
-func (this *Product) ShowKart() revel.Result {	
-	userKart := new(kart.Kart);
-	cache.Get(this.Session.Id(), &userKart)
-	return this.RenderJson(userKart);
+func (this *Product) ProductsByCategory(category string) revel.Result {	
+	return this.Redirect(this.List(10, 0));
 }
 
-func (this *Product) ProductsByCategory(category string) revel.Result {	
-	return this.Redirect(Product.List());
+func (this *Product) Product(codigo int) revel.Result {
+	productCode := codigo;
+	return this.Render(productCode);
 }
