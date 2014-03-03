@@ -23,11 +23,11 @@
 </head>
 
 <body>
-	<div class="container-fluid centeredDiv">
+	{{ template "menu.html" .}}
+	<div class="container-fluid centeredDiv" style="margin-top:40px;">
 		<h1 style="color: #359788;">
 			<a href="/" class="linkHome"> Casa Comigo </a>
 		</h1>
-		{{ template "menu.html" .}}
 
 		<div class="row" id="mainDiv" style="padding: 10px;">
 			<div class="span12">

@@ -65,7 +65,7 @@ func UpdateCoupleAmmount(casal string, presente float64) {
 
 	//find account
 	result := account.Account{}
-	colQuerier := bson.M{"apelido": apelido}
+	colQuerier := bson.M{"apelido": casal}
 	err = c.Find(colQuerier).One(&result)
 	if err != nil {
     	panic(err)

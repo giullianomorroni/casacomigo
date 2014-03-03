@@ -43,6 +43,6 @@ func (this *Product) Product(codigo int) revel.Result {
 	return this.Render(productCode);
 }
 
-func (this *Store) Offers() revel.Result {
+func (this *Product) Offers() revel.Result {
 	return this.Render();
 }

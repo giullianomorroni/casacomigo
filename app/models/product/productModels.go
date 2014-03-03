@@ -9,7 +9,7 @@ type (
 		PrecoOriginal	float64	`bson:"preco_original"`
 		Descricao		string	`bson:"descricao"`
 		Informacoes		interface{} `bson:"informacoes"`
-		Oferta			boolean `bson:"oferta"`
+		Oferta			bool 	`bson:"oferta"`
 	}
 
 )
