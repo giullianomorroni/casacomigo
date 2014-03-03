@@ -62,3 +62,22 @@ func List(limite, pular int) ([]product.Product) {
     }
     return results;
 }
+
+func ListOffers(limite, pular int) ([]product.Product) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("product")
+
+	var results []product.Product
+	err = c.Find(bson.M{"oferta": true}).Skip(pular).Limit(limite).All(&results)
+    if err != nil {
+    	panic(err)
+    }
+    return results;
+}

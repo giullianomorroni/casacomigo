@@ -52,8 +52,33 @@ func UpdateAccountStatus(apelido ,status string) {
 	}
 }
 
-func UpdateCoupleAmmount(casal string, total float64) {
-	revel.TRACE.Printf("Pagamento presente concluido %s", casal)
+func UpdateCoupleAmmount(casal string, presente float64) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("account")
+
+	//find account
+	result := account.Account{}
+	colQuerier := bson.M{"apelido": apelido}
+	err = c.Find(colQuerier).One(&result)
+	if err != nil {
+    	panic(err)
+    }
+    lucro := result.Lucro;
+	lucro += presente;
+
+	//update value
+	change := bson.M{"$set": bson.M{"lucro": lucro}}
+	err = c.Update(colQuerier, change)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func FindAccount(apelido string) (account.Account) {

@@ -20,6 +20,11 @@ func (this *Product) List(limite, pular int) revel.Result {
 	return this.RenderJson(list);
 }
 
+func (this *Product) ListOffers(limite, pular int) revel.Result {	
+	list := srv.ListOffers(limite, pular);
+	return this.RenderJson(list);
+}
+
 func (this *Product) Detail(codigo int) revel.Result {	
 	product := srv.FindProduct(codigo);
 	return this.RenderJson(product);
@@ -36,4 +41,8 @@ func (this *Product) ProductsByCategory(category string) revel.Result {
 func (this *Product) Product(codigo int) revel.Result {
 	productCode := codigo;
 	return this.Render(productCode);
+}
+
+func (this *Store) Offers() revel.Result {
+	return this.Render();
 }

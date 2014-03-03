@@ -25,15 +25,18 @@ GET		/casal/buscar			Shopping.FindCouple
 
 #Product
 GET		/produto/listar/limite/:limite/pular/:pular					Product.List
+GET		/oferta/listar/limite/:limite/pular/:pular					Product.ListOffers
 GET		/produto/:codigo											Product.Detail
 GET		/carrinho/adicionar/produto/:codigo/quantidade/:quantidade	Store.AddToKart
 
-#Store
+#Store Products
 GET		/loja/produtos							Product.Products
 GET		/loja/produtos/categoria/:categoria		Product.ProductsByCategory
 GET		/loja/produto/:codigo					Product.Product
+GET		/loja/ofertas							Product.Offers
+
+#Store
 GET		/loja/casal/:apelido					Store.Store
-GET		/loja/ofertas							Store.Offers
 GET		/loja/faq								Store.Faq
 GET		/loja/contato							Store.Contact
 GET		/loja/pagamento							Store.Checkout

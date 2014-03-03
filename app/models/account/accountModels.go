@@ -13,7 +13,7 @@ type (
 		Apelido			string	`bson:"apelido"`
 		Senha			string	`bson:"senha"`
 		Status			string	`bson:"status"`
-		Lucro			float32	`bson:"lucro"`
+		Lucro			float64	`bson:"lucro"`
 	}
 
 )
