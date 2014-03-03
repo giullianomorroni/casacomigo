@@ -37,8 +37,16 @@ func (this *Payment) PaymentReturn(token, PayerID string) revel.Result {
 	}
 	paypal.ConfirmPayment(token, PayerID, "USD", ammountFloat);
 
-	apelido := this.Session["account_id"]
-	srv.UpdateAccountStatus(apelido, "pagamento_efetuado");
+	paymentType := this.Session["payment_type"]
+
+	if paymentType == "signature" {
+		apelido := this.Session["account_id"]
+		srv.UpdateAccountStatus(apelido, "pagamento_efetuado");
+	} else if paymentType == "gift" {
+		casal := this.Session["couple"]
+		srv.UpdateCoupleAmmount(casal, ammountFloat);
+	}
+
 	
 	return this.Render();
 }

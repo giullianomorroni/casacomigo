@@ -15,6 +15,15 @@ function addToKart() {
 
 	$.ajax({
 		  url: (PROTOCOL+"//"+HOST)+"/carrinho/adicionar/produto/"+product_code+"/quantidade/"+quantity,
-		  dataType: "json"
+		  dataType: "json",
+		  success: function (data) { 
+			  $("#productMessage").html("O Produto foi adicionado com sucesso !"); 
+			  $("#productMessage").fadeIn(2500);
+			  setTimeout( function () {$("#productMessage").fadeOut(2500)}, 4000);
+		  },
 	});
+}
+
+function hideThis(el){
+	$(el).hide();
 }

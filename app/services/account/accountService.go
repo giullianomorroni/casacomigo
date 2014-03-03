@@ -1,9 +1,10 @@
 package account
 
 import (
-	"fmt"
+	"github.com/robfig/revel"
 	"casacomigo/app/models/account"
 	"casacomigo/app/models/site"
+	"casacomigo/app/models/shopper"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 )
@@ -51,6 +52,10 @@ func UpdateAccountStatus(apelido ,status string) {
 	}
 }
 
+func UpdateCoupleAmmount(casal string, total float64) {
+	revel.TRACE.Printf("Pagamento presente concluido %s", casal)
+}
+
 func FindAccount(apelido string) (account.Account) {
 	session, err := mgo.Dial("127.0.0.1")
 	if err != nil {
@@ -84,7 +89,7 @@ func Register(account account.Account) (p *account.Account, err error) {
  	err =  c.Insert(account)
 
  	if err != nil {
-		fmt.Print(err)
+		revel.TRACE.Printf("Error %s", err)
 	}
 	return p, err
 }
@@ -102,7 +107,24 @@ func RegisterSite(site site.Site) (p *site.Site, err error) {
  
  	err =  c.Insert(site)
  	if err != nil {
-		fmt.Print(err)
+		revel.TRACE.Printf("Error %s", err)
 	}
 	return p, err
+}
+
+func RegisterShopper(shopper shopper.Shopper) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("comprador")
+ 
+ 	err =  c.Insert(shopper)
+ 	if err != nil {
+		revel.TRACE.Printf("Error %s", err)
+	}
 }

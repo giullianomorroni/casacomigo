@@ -27,7 +27,6 @@ GET		/casal/buscar			Shopping.FindCouple
 GET		/produto/listar/limite/:limite/pular/:pular					Product.List
 GET		/produto/:codigo											Product.Detail
 GET		/carrinho/adicionar/produto/:codigo/quantidade/:quantidade	Store.AddToKart
-GET		/carrinho/exibir 											Store.ShowKart
 
 #Store
 GET		/loja/produtos							Product.Products
@@ -38,6 +37,8 @@ GET		/loja/ofertas							Store.Offers
 GET		/loja/faq								Store.Faq
 GET		/loja/contato							Store.Contact
 GET		/loja/pagamento							Store.Checkout
+GET		/loja/dados/comprador					Store.Register
+POST	/loja/registrar/comprador				Store.RegisterShopper
 
 # Ignore favicon requests
 GET     /favicon.ico			404

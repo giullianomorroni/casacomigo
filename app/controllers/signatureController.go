@@ -50,7 +50,9 @@ func (s Signature) Register(nomeNoivo, telefoneNoivo, emailNoivo, nomeNoiva, tel
 	a.Senha 		= senha
 	a.Status 		= "aguardando_pagamento"
 	a.Lucro 		= 0.0
-
+	
+	s.Session["payment_type"] = "signature"
+	
 	srv.Register(a);
 	//fmt.Print(a)
 	//fmt.Print(err)

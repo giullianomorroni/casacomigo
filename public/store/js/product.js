@@ -26,7 +26,7 @@ function mountProduct(data) {
 	}
 
 	for(var x=1; x < 3; x++){
-		var urlPhoto = "<a href='/public/store/img/"+data.Codigo+"/"+x+".jpg' alt=''> <img style='width:29%' src='/public/store/img/"+data.Codigo+"/"+x+".jpg' alt=''/></a>";
+		var urlPhoto = "<a href='/public/store/img/"+data.Codigo+"/"+x+".jpg' alt=''> <img style='width:29%' src='/public/store/img/"+data.Codigo+"/"+x+".jpg' onerror='hideThis(this)'/></a>";
 		$("#photos").append(urlPhoto);
 	}
 

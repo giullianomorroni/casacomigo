@@ -29,9 +29,9 @@
                 <th>Total</th>
 			</tr>
 		</thead>
-        
+
         <tbody>
-        	{{range .products}}
+        	{{range .checkout.Produtos}}
 				<tr>
 	            	<td> <img width="60" src="/public/store/img/{{.Codigo}}/thumb.jpg" alt=""/></td>       	
 	                <td> {{.Titulo}} </td>
@@ -50,10 +50,6 @@
 	            </tr>
         	{{end}}
 			<tr>
-				<td colspan="6" style="text-align:right">Total Preço:	</td>
-				<td> R$XXX.XX </td>
-			</tr>
-			<tr>
             	<td colspan="6" style="text-align:right">Total Desconto:	</td>
   				<td> R$0.00 </td>
 			</tr>
@@ -62,8 +58,8 @@
              	<td> R$0.00 </td>
            	</tr>
 			<tr>
-            	<td colspan="6" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-				<td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+            	<td colspan="6" style="text-align:right"><strong>TOTAL =</strong></td>
+				<td class="label label-important" style="display:block"> <strong> {{.checkout.Total}} </strong></td>
             </tr>
 		</tbody>
 	</table>
@@ -87,12 +83,12 @@
 	</table>
          		
 	<a href="/loja/produtos" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Comprando </a>
-	<a href="loja/pagamento" class="btn btn-large pull-right"> Finalizar <i class="icon-arrow-right"></i></a>
+	<a href="/loja/dados/comprador" class="btn btn-large pull-right"> Finalizar <i class="icon-arrow-right"></i></a>
 	
 </div>
 </div></div>
 </div>
-	<!-- MainBody End ============================= -->
 	{{template "store/footer.html"}}
+	
 </body>
 </html>

@@ -8,9 +8,9 @@ import (
 	_ "casacomigo/app"
 	controllers1 "casacomigo/app/controllers"
 	controllerBase "casacomigo/app/controllers/base"
-	controllers0 "github.com/robfig/revel/modules/static/app/controllers"
+	controllers "github.com/robfig/revel/modules/static/app/controllers"
 	_ "github.com/robfig/revel/modules/testrunner/app"
-	controllers "github.com/robfig/revel/modules/testrunner/app/controllers"
+	controllers0 "github.com/robfig/revel/modules/testrunner/app/controllers"
 )
 
 var (
@@ -54,7 +54,31 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.TestRunner)(nil),
+	revel.RegisterController((*controllers.Static)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Serve",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "ServeModule",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers0.TestRunner)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -81,30 +105,6 @@ func main() {
 			&revel.MethodType{
 				Name: "List",
 				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers0.Static)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Serve",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			&revel.MethodType{
-				Name: "ServeModule",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "moduleName", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "prefix", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "filepath", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -169,7 +169,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					24: []string{ 
+					27: []string{ 
 					},
 				},
 			},
@@ -179,7 +179,7 @@ func main() {
 					&revel.MethodArg{Name: "apelido", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					29: []string{ 
+					32: []string{ 
 					},
 				},
 			},
@@ -188,8 +188,8 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					48: []string{ 
-						"products",
+					61: []string{ 
+						"checkout",
 					},
 				},
 			},
@@ -198,8 +198,27 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					52: []string{ 
+					65: []string{ 
 					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Register",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					69: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "RegisterShopper",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "nome", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "email", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "telefone", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
 				},
 			},
 			&revel.MethodType{
@@ -207,7 +226,16 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					56: []string{ 
+					96: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Payment",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					100: []string{ 
 					},
 				},
 			},
@@ -216,15 +244,6 @@ func main() {
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "codigo", Type: reflect.TypeOf((*int)(nil)) },
 					&revel.MethodArg{Name: "quantidade", Type: reflect.TypeOf((*int)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					75: []string{ 
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "ShowKart",
-				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -296,7 +315,7 @@ func main() {
 					&revel.MethodArg{Name: "PayerID", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					43: []string{ 
+					51: []string{ 
 					},
 				},
 			},
@@ -312,7 +331,7 @@ func main() {
 					&revel.MethodArg{Name: "noiva", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					22: []string{ 
+					21: []string{ 
 						"result",
 					},
 				},
@@ -323,7 +342,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					26: []string{ 
+					25: []string{ 
 					},
 				},
 			},
@@ -333,7 +352,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					34: []string{ 
+					33: []string{ 
 						"token",
 					},
 				},
@@ -378,7 +397,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					64: []string{ 
+					66: []string{ 
 					},
 				},
 			},
@@ -387,7 +406,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					68: []string{ 
+					70: []string{ 
 					},
 				},
 			},
@@ -396,7 +415,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					72: []string{ 
+					74: []string{ 
 					},
 				},
 			},
@@ -406,7 +425,7 @@ func main() {
 					&revel.MethodArg{Name: "plano", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					88: []string{ 
+					90: []string{ 
 						"token",
 					},
 				},
