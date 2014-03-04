@@ -146,7 +146,7 @@ func RegisterShopper(shopper shopper.Shopper) {
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
  
- 	c := session.DB("casacomigo").C("comprador")
+ 	c := session.DB("casacomigo").C("shopper")
  
  	err =  c.Insert(shopper)
  	if err != nil {
