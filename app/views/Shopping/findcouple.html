@@ -20,37 +20,37 @@
     <meta name="rating" content="General" />
     <meta name="geo.country" content="Brasil" />
     <meta name="dc.language" content="pt_BR" />
+    <link href='http://fonts.googleapis.com/css?family=Crafty+Girls|Fanwood Text' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	{{ template "menu.html" .}}
-	<div class="container-fluid centeredDiv" style="margin-top:40px;">
-		<h1 style="color: #359788;">
+	<div class="container centeredDiv" style="margin-top:40px;">
+		<h1 class="casaComigo">
 			<a href="/" class="linkHome"> Casa Comigo </a>
 		</h1>
 
-		<div class="row-fluid" id="mainDiv" style="padding: 10px;">
-			<div class="span12">
+		<div class="row" id="mainDiv" style="padding: 10px;">
+			<div class="col-md-12">
 	
-				<form action="/casal/buscar" method="get" class="form-horizontal" role="form">
-			        <div class="row-fluid">
-			            <h3>Achador de casal</h3>            	
+				<form action="/casal/buscar" method="get" class="form-inline" role="form">
+			        <div class="row">
+			            <h3>Busca Casais</h3>            	
 			            <div class="form-group">
-	              			<label for="nomeNoivo" class="col-sm-2 control-label">Noivo</label>
-	              			<div class="col-sm-10"> <input type="text" class="form-control" name="noivo" id="noivo" /> </div>
+	              			<label for="noivo" class="sr-only">Noivo</label>
+	              			<input type="text" class="form-control" name="noivo" id="noivo" placeholder="Nome do Noivo"/>
             			</div>
 
 			            <div class="form-group">
-	              			<label for="nomeNoivo" class="col-sm-2 control-label">Noiva</label>
-	              			<div class="col-sm-10"> <input type="text" class="form-control" name="noiva" id="noiva" /> </div>
+	              			<label for="noiva" class="sr-only">Noiva</label>
+	              			<input type="text" class="form-control" name="noiva" id="noiva" placeholder="Nome da Noiva"/>
             			</div>
-
+					    <button id="concluir" class="btn btn-info btn-large" style="font-size:larger;">Procurar...</button>
 			        </div>
-			        <button id="concluir" class="btn btn-info btn-large" style="font-size:larger;">Procurar...</button>
 			    </form>
 			    <br/>
-			
-			    <table class="table table-hover">
+
+			    <table class="table">
 			        <tr>
 			            <th>Noivo</th>
 			            <th>Noiva</th>
@@ -63,7 +63,9 @@
 			                <td>{{.Noivo}}</td>
 			                <td>{{.Noiva}}</td>
 			                <td>{{.DataCasamento}}</td>
-			                <td><a href="/loja/casal/{{.Apelido}}"> visualizar </a></td>
+			                <td>
+			                	<a class="" href="/loja/casal/{{.Apelido}}"> Ver Lista de Presente </a>
+			                </td>
 			            </tr>
 			        {{end}}
 			    </table>

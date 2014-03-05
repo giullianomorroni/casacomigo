@@ -13,7 +13,7 @@
     max-width: 1000px;
     font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
     padding: 1px;
-    color:#FBEDA5
+    color:#FBEDA5;
 }
 
 body {
@@ -28,3 +28,8 @@ a.linkHome:hover, a.linkHome:link, a.linkHome:visited, a.linkHome:active {
     text-decoration: none;
 }
 
+.casaComigo {
+	color:#359788; 
+	font-size:400%;  
+	font-family: Crafty Girls, cursive;
+}
