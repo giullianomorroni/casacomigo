@@ -73,6 +73,9 @@ func UpdateCoupleAmmount(casal string, presente float64) {
     lucro := result.Lucro;
 	lucro += presente;
 
+	revel.TRACE.Printf("UpdateCoupleAmmount - presente: %s", presente);
+	revel.TRACE.Printf("UpdateCoupleAmmount - lucro total: %s", lucro);
+
 	//update value
 	change := bson.M{"$set": bson.M{"lucro": lucro}}
 	err = c.Update(colQuerier, change)
