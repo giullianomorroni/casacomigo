@@ -114,10 +114,24 @@ func Register(account account.Account) (p *account.Account, err error) {
  
  	c := session.DB("casacomigo").C("account")
 
- 	err =  c.Insert(account)
+	index := Index{
+	    Key: []string{"apelido"},
+	    Unique: true,
+	    DropDups: false,
+	    Background: false,
+	    Sparse: true,
+	}
 
+	err = c.EnsureIndex(index)
+	if err != nil {
+		revel.TRACE.Printf("Error %s", err)
+		return p, err
+	}
+
+ 	err =  c.Insert(account)
  	if err != nil {
 		revel.TRACE.Printf("Error %s", err)
+		return p, err
 	}
 	return p, err
 }

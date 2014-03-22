@@ -1,5 +1,17 @@
-$( document ).ready(function() { 
-		$("#assinatura_passo_1").validate({
+$(document).ready(function() {
+	
+	$("#dataCasamento").mask("99/99/9999");
+	$("#telefoneNoivo").mask("(999) 9999-9999");
+	$("#telefoneNoiva").mask("(999) 9999-9999");
+
+	$(".form-control").css("font-family", "Poiret One");
+	$(".form-control").css("font-size", "20px");
+	
+	$(".control-label").css("font-family", "Candal");
+	$(".control-label").css("font-family", "sans-serif");
+	$(".control-label").css("font-size", "20px");
+
+	$("#assinatura_passo_1").validate({
 			rules: {
 				nomeNoivo : { required: true },
 				nomeNoiva : { required: true },
@@ -21,4 +33,6 @@ $( document ).ready(function() {
 				senha : { required: "Este campo é obrigatório", minlength: "A senha deve ter pelo menos 6 caracteres"}
 			}
 		});
+		
+		
 });
