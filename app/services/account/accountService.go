@@ -114,7 +114,7 @@ func Register(account account.Account) (p *account.Account, err error) {
  
  	c := session.DB("casacomigo").C("account")
 
-	index := Index{
+	index := mgo.Index{
 	    Key: []string{"apelido"},
 	    Unique: true,
 	    DropDups: false,

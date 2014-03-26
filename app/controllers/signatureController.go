@@ -50,15 +50,16 @@ func (s Signature) Register(nomeNoivo, telefoneNoivo, emailNoivo, nomeNoiva, tel
 	a.Senha 		= senha
 	a.Status 		= "aguardando_pagamento"
 	a.Lucro 		= 0.0
-	
+
 	s.Session["payment_type"] = "signature"
-	
-	srv.Register(a);
-	//fmt.Print(a)
-	//fmt.Print(err)
 
-	s.Session["account_id"] = a.Apelido
+	p, err := srv.Register(a);
+	if (err != nil){
+		s.Flash.Error("Esse Apelido já está em uso, tente outro ;) !")
+		return s.Redirect("/conta/nova")
+	}
 
+	s.Session["account_id"] = p.Apelido
 	return s.Redirect((*Signature).ChooseSite)
 }
 
