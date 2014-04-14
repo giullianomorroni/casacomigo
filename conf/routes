@@ -18,8 +18,9 @@ GET		/test/payment/return	Payment.PaymentReturn
 
 GET		/payment/return			Payment.PaymentReturn
 
-GET		/minha_conta			Account.Login
-POST	/autenticar				Account.Profile
+GET		/minha_conta			Account.Profile
+GET		/login					Account.Signin
+POST	/autenticar				Account.Login
 
 GET		/casal/buscar			Shopping.FindCouple
 

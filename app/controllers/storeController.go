@@ -68,6 +68,7 @@ func (this *Store) RegisterShopper(nome, email, telefone string) revel.Result {
 	var casal = this.Session["couple"]
 	var aux = this.Session["total"]
 	this.Session["payment_type"] = "gift"
+	this.Session["shopper"] = nome
 	total, err := strconv.ParseFloat(aux, 64);
 	if (err != nil){
 		//TODO

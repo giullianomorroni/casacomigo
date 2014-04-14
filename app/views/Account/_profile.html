@@ -31,20 +31,36 @@
 
 		<div class="row-fluid" id="mainDiv">
 			<div class="span12">
-				<h3>Aqui só entra casal</h3>
-		      	<form action="/autenticar/" method="post">
-			  
-			  		<div class="span3">email: <input type="email" name="email" id="email"> </div>
-			  		<div class="span3">senha: <input type="password" name="senha" id="senha"> </div>
-			  		<div class="row-fluid">
-			    		<div class="span3">
-							<button id="ok">ok</button>
-			    		</div>
-			    		<div class="span3">
-			      			<button id="ok">esqueci minha senha</button>
-			    		</div>
-			  		</div>
-		      	</form>
+
+     			<div class="span3">	Bem Vindo {{.account.Apelido}} </div>
+     			<div class="span4"> <a href ="#">Alterar Senha</a> </div>
+
+			   <div class="row-fluid">
+			     <div class="span3"> Presentes </div>
+			     <div class="span3"> R$ {{.account.Lucro}} </div>
+			     <div class="span3"> <a href="#">Detalhar Compras</a> </div>
+			   </div>
+
+			   <div class="row-fluid">
+			     Seu site teve XXX acessos. Faltam X dias para o grande dia. X Pessoas te escreveram.
+			   </div>
+   
+				<div class="row-fluid">
+				   	<div class="span12">
+						<p>Área de Gerenciamento</p>
+	    			</div>
+	     
+	     			<div class="span4">
+						<a href ="#">Site do Casal</a> <br/>
+	     			</div>
+	     			<div class="span4">
+						<a href ="#">Mural de Fotos</a> <br/>
+	     			</div>
+	     			
+	     			<div class="span4">
+						<a href ="#">Mural de Recados</a> <br/>
+	     			</div>      
+   				</div>
 		    </div>
 		
 		</div>
@@ -62,9 +78,8 @@
     <script type="text/javascript" src="/public/js/mask/jquery.inputmask.js"></script>
     <script type="text/javascript" src="/public/js/validate/jquery.validate.js"></script>
   	<script type="text/javascript">
-        $("#mainDiv").css("background-color","#033649");
+	  	$("#mainDiv").css("background-color","#576D58");
     </script>
 
   </body>
 </html>
-    

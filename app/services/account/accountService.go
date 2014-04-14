@@ -7,6 +7,7 @@ import (
 	"casacomigo/app/models/shopper"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
+	"time"
 )
 
 //** PUBLIC FUNCTIONS
@@ -52,13 +53,13 @@ func UpdateAccountStatus(apelido ,status string) {
 	}
 }
 
-func UpdateCoupleAmmount(casal string, presente float64) {
+func UpdateCoupleAmmount(casal, comprador string, presente float64) {
 	session, err := mgo.Dial("127.0.0.1")
 	if err != nil {
 		panic(err)
 	}
  
-	defer session.Close()
+	defer session.Close();
 	session.SetMode(mgo.Monotonic, true)
  
  	c := session.DB("casacomigo").C("account")
@@ -82,6 +83,24 @@ func UpdateCoupleAmmount(casal string, presente float64) {
 	if err != nil {
 		panic(err)
 	}
+
+	c = session.DB("casacomigo").C("bank")
+	bank := account.Bank{};
+	bank.Apelido = casal;
+	const layout = "2 Jan, 2006 - 15:04"
+	bank.Data = time.Now().Format(layout);
+	bank.Comprador = comprador;
+	bank.Valor = presente;
+	c.Insert(bank);
+	revel.TRACE.Printf("Bank: %s", c);
+	
+	c = session.DB("casacomigo").C("notification")
+	ntf := account.Notification{};
+	ntf.Apelido = casal;
+	ntf.Tipo = "Presente";
+	ntf.Descricao = "Você ganhou mais um presente :) ";
+	c.Insert(ntf);
+	revel.TRACE.Printf("Notification: %s", ntf);
 }
 
 func FindAccount(apelido string) (account.Account) {
@@ -97,6 +116,25 @@ func FindAccount(apelido string) (account.Account) {
 
 	result := account.Account{}
 	err = c.Find(bson.M{"apelido": apelido}).One(&result)
+    if err != nil {
+    	panic(err)
+    }
+    return result; 
+}
+
+func Login(apelido, senha string) (account.Account) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("account")
+
+	result := account.Account{}
+	err = c.Find(bson.M{"apelido": apelido, "senha": senha}).One(&result)
     if err != nil {
     	panic(err)
     }
@@ -169,4 +207,42 @@ func RegisterShopper(shopper shopper.Shopper) {
  	if err != nil {
 		revel.TRACE.Printf("Error %s", err)
 	}
+}
+
+func FindNotifications(apelido string) ([]account.Notification) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("notification")
+
+	var results []account.Notification
+	err = c.Find(bson.M{"apelido": apelido}).All(&results)
+    if err != nil {
+    	panic(err)
+    }
+    return results; 
+}
+
+func FindBanks(apelido string) ([]account.Bank) {
+	session, err := mgo.Dial("127.0.0.1")
+	if err != nil {
+		panic(err)
+	}
+ 
+	defer session.Close()
+	session.SetMode(mgo.Monotonic, true)
+ 
+ 	c := session.DB("casacomigo").C("bank")
+
+	var results []account.Bank
+	err = c.Find(bson.M{"apelido": apelido}).All(&results)
+    if err != nil {
+    	panic(err)
+    }
+    return results; 
 }
