@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+{{template "store/head.html" }}
+
+<body>
+
+	{{template "store/header.html"}}
+
+<div id="mainBody">
+	<div class="container">
+		<div class="row">
+
+			<div class="span12">
+    			<ul class="breadcrumb">
+					<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+					<li class="active">Dados Do Comprador</li>
+    			</ul>
+
+				<div class="well">
+					<form action="/loja/registrar/comprador" method="post" class="form-horizontal" >
+						<h4>Preencha com seus dados:</h4>
+						<div class="control-group">
+							<label class="control-label" for="nome1">Nome Completo<sup>*</sup></label>
+							<div class="controls">
+		  						<input type="text" id="nome" name="nome" placeholder="nome">
+							</div>
+	 					</div>
+	 					
+						<div class="control-group">
+							<label class="control-label" for="email">Email <sup>*</sup></label>
+							<div class="controls">
+								<input type="text" id="email" name="email" placeholder="email">
+							</div>
+						</div>	  
+					
+						<div class="control-group">
+							<label class="control-label" for="phone">Telefone <sup>*</sup></label>
+							<div class="controls">
+								<input type="text"  name="telefone" id="telefone" placeholder="telefone"/>
+							</div>
+						</div>
+						
+
+						<div class="control-group">
+							<div class="controls">
+								<input type="hidden" name="email_create" value="1">
+								<input type="hidden" name="is_new_customer" value="1">
+								<input class="btn btn-large btn-success" type="submit" value="Pagar Com PayPal" />
+							</div>
+						</div>		
+					</form>
+				</div>
+				<p><sup>*</sup>Campos Obrigatórios</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- MainBody End ============================= -->
+
+</body>
+</html>

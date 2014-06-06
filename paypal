@@ -1,0 +1,111 @@
+REST API CREDENTIALS
+
+Test credentials
+
+Test account: giullianomorroni-facilitator@gmail.com
+Endpoint:     api.sandbox.paypal.com 
+Client ID:    ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO
+Secret:       EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3
+
+
+Endpoint:  api.paypal.com 
+Client ID: AU4ZaBDoMZZgwxPoh9r_wA02-YHc0y_8XqvLFhH_qg50XlwP4zs78heGxkM5 
+Secret:    EK4RIBDON84eLi7Cq7l4HWbodLTJfBWh2gg3CZMj_ahjXiOiKyPZ6yJjsooN 
+
+Keep your secret credentials private to protect you and your customers.
+
+
+
+
+
+
+Example access token request
+
+curl -v https://api.sandbox.paypal.com/v1/oauth2/token \
+  -H "Accept: application/json" \
+  -H "Accept-Language: en_US" \
+  -u "ARlTNhDHFGV9o5RRDx1RA9hsuqekZbWX_C55gFGRdjJSc7nFzRsdNDH0HFyO:EEEn1BCvpIxRQz94AatwurIoDrfhzYFCiGZayFX5gbNSxqPLZIkkDnmeIay3" \
+  -d "grant_type=client_credentials"
+  
+  
+  
+Example PayPal payment request
+
+curl -v https://api.sandbox.paypal.com/v1/payments/payment \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {accessToken}' \
+-d '{
+  "intent":"sale",
+  "redirect_urls":{
+    "return_url":"http://example.com/your_redirect_url/",
+    "cancel_url":"http://example.com/your_cancel_url/"
+  },
+  "payer":{
+    "payment_method":"paypal"
+  },
+  "transactions":[
+    {
+      "amount":{
+        "total":"7.47",
+        "currency":"USD"
+      }
+    }
+  ]
+}'
+
+
+RESPONSE FROM CREATE PAYMENT
+{
+  "id": "PAY-6RV70583SB702805EKEYSZ6Y",
+  "create_time": "2013-03-01T22:34:35Z",
+  "update_time": "2013-03-01T22:34:36Z",
+  "state": "created",
+  "intent": "sale",
+  "payer": {
+    "payment_method": "paypal"
+  },
+  "transactions": [
+    {
+      "amount": {
+        "total": "7.47",
+        "currency": "USD",
+        "details": {
+          "subtotal": "7.47"
+        }
+      },
+      "description": "This is the payment transaction description."
+    }
+  ],
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=EC-60U79048BN7719609",
+      "rel": "approval_url",
+      "method": "REDIRECT"
+    },
+    {
+      "href": "https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute",
+      "rel": "execute",
+      "method": "POST"
+    }
+  ]
+}
+
+
+
+After this response, redirect user to approval_url, the pay pal will return to your url 
+
+When the user approves the payment, PayPal redirects the user back to the return_url you specified. PayPal also appends the payer ID value in the return URL as PayerID:
+
+http://<return_url>?token=EC-60U79048BN7719609&PayerID=7E7MGXCWTTKK2
+
+
+To execute the payment after approval call and include the appended payer ID value in the request body as payer_id.
+curl -v https://api.sandbox.paypal.com/v1/payments/payment/PAY-6RV70583SB702805EKEYSZ6Y/execute/ \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {accessToken}' \
+-d '{ "payer_id" : "{payerId}" }'

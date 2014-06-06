@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "store/head.html" }}
+<body>
+
+	{{template "store/header.html"}}
+
+	<div id="mainBody">
+		<div class="container">
+			<div class="row">
+				{{template "store/sidebar.html"}}
+
+		<div class="span9">
+		<ul class="breadcrumb">
+			<li><a href="/loja">Home</a> <span class="divider">/</span></li>
+			<li class="active">Produtos</li>
+		</ul>
+		<h3> Todos os Produtos <small class="pull-right"> </small></h3>	
+
+		<hr class="soft"/>
+
+	<div id="myTab" class="pull-right">
+	<a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
+	<a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+	</div>
+	<br class="clr"/>
+	<div class="tab-content">
+		<div class="tab-pane" id="listView">
+			<!-- products -->
+		</div>
+
+		<div class="tab-pane  active" id="blockView">
+			<ul class="thumbnails" id="blockView_ul">
+			<!-- products -->
+			</ul>
+			<hr class="soft"/>
+			</div>
+		</div>
+
+		<a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
+		<div class="pagination">
+		<ul>
+			<li><a href="#">&lsaquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">...</a></li>
+			<li><a href="#">&rsaquo;</a></li>
+		</ul>
+		</div>
+		<br class="clr"/>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	{{template "store/footer.html"}}
+	<script src="/public/store/js/offers.js" type="text/javascript"></script>
+
+	</body>
+</html>
