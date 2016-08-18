@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	srv "casa_comigo/services/account"
+	srv "casacomigo/services/account"
 	"github.com/astaxie/beego"
 )
 

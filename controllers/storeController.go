@@ -1,12 +1,12 @@
 package controllers
 
 import (
-	srv "casa_comigo/services/product"
-	mdl "casa_comigo/models/product"
-	accountSrv "casa_comigo/services/account"
-	"casa_comigo/models/shopper"
-	"casa_comigo/models/kart"
-	"casa_comigo/services/paypal"
+	srv "casacomigo/services/product"
+	mdl "casacomigo/models/product"
+	accountSrv "casacomigo/services/account"
+	"casacomigo/models/shopper"
+	"casacomigo/models/kart"
+	"casacomigo/services/paypal"
 	"github.com/astaxie/beego"
 	"strconv"
 )
@@ -17,9 +17,11 @@ type StoreController struct {
 
 func init() {}
 
-func (this *StoreController) Store(apelido string) {
-	//this.Session["couple"] = apelido;
-	this.Render();
+func (this *StoreController) Store() {
+	apelido := this.Input().Get("apelido")
+	beego.Info(apelido)
+	this.SetSession("couple", apelido);
+	this.TplName = "Store/store.html"
 }
 
 func (this *StoreController) Checkout() {
@@ -51,13 +53,6 @@ func (this *StoreController) Checkout() {
 	this.Render();
 }
 
-func (this *StoreController) Faq() {
-	this.Render();
-}
-
-func (this *StoreController) Register() {
-	this.Render();
-}
 
 func (this *StoreController) RegisterShopper(nome, email, telefone string) {
 	var casal = ""//this.Session["couple"]
@@ -81,14 +76,6 @@ func (this *StoreController) RegisterShopper(nome, email, telefone string) {
 		//this.NotFound("Não foi possível completar a operação", shopper);
 	}
 	this.Ctx.Redirect(302, "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token="+token);
-}
-
-func (this *StoreController) Contact() {
-	this.Render();
-}
-
-func (this *StoreController) Payment() {
-	this.Render();
 }
 
 func (this *StoreController) AddToKart(codigo, quantidade int) {

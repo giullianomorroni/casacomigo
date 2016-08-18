@@ -1,9 +1,9 @@
 package account
 
 import (
-	"casa_comigo/models/account"
-	"casa_comigo/models/site"
-	"casa_comigo/models/shopper"
+	"casacomigo/models/account"
+	"casacomigo/models/site"
+	"casacomigo/models/shopper"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"time"

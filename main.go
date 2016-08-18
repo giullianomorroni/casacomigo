@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "casa_comigo/routers"
+	_ "casacomigo/routers"
 	"github.com/astaxie/beego"
 )
 

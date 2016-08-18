@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	srv "casa_comigo/services/product"
+	srv "casacomigo/services/product"
 	"github.com/astaxie/beego"
 	//"fmt"
 )

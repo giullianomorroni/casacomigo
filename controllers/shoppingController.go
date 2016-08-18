@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"casa_comigo/services/paypal"
+	"casacomigo/services/paypal"
 	"github.com/astaxie/beego"
 )
 

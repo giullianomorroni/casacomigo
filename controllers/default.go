@@ -20,3 +20,19 @@ func (this *MainController) Signin() {
 func (this *MainController) Home() {
 	this.TplName = "Home/index.html"
 }
+
+func (this *MainController) StoreFaq() {
+	this.TplName = "Store/faq.html"
+}
+
+func (this *MainController) StoreRegister() {
+	this.TplName = "Store/register.html"
+}
+
+func (this *MainController) StoreContact() {
+	this.TplName = "Store/contact.html"
+}
+
+func (this *MainController) StorePayment() {
+	this.TplName = "Store/payment.html"
+}

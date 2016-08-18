@@ -1,7 +1,7 @@
 package product
 
 import (
-	"casa_comigo/models/product"
+	"casacomigo/models/product"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 )

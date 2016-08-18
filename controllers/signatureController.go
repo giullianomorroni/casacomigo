@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	srv "casa_comigo/services/account"
-	mdl "casa_comigo/models/account"
-	"casa_comigo/models/site"
-	"casa_comigo/services/paypal"
+	srv "casacomigo/services/account"
+	mdl "casacomigo/models/account"
+	"casacomigo/models/site"
+	"casacomigo/services/paypal"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
     "fmt"

@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	srv "casa_comigo/services/account"
-	"casa_comigo/services/paypal"
+	srv "casacomigo/services/account"
+	"casacomigo/services/paypal"
 	"github.com/astaxie/beego"
 	"strconv"
 )
